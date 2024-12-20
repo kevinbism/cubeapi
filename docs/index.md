@@ -25,5 +25,5 @@ features:
     details: Esplora le funzioni con uno sguardo più approfondito! Scopri le potenzialità avanzate di Cube e apri la porta a un nuovo livello di esperienza.
   - icon: 🔎
     title: Ricerca globale
-    details: Scopri le impostazioni che desideravi con la ricerca avanzata di Cube! Sbircia tra le opzioni e trova esattamente ciò che stavi cercando per dare vita ai tuoi progetti.
+    details: Ricerca avanzata di Cube! Sbircia tra le opzioni e trova esattamente ciò che stavi cercando per dare vita ai tuoi progetti.
 ---

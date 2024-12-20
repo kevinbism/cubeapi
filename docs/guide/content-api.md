@@ -39,7 +39,7 @@ function getTesto($id_pagina, $id_lingua) {
 
 ## `getTitolo()`
 
-Restituisce il titolo della pagina.
+Restituisce il titolo principale della pagina.
 
 ```php
 /**

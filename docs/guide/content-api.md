@@ -7,7 +7,9 @@ description: API per i contenuti di Cube.
 
 Esplora le funzioni essenziali di Cube con questa pratica guida! Scopri le varie opzioni disponibili per ogni parametro e semplifica il tuo utilizzo del sistema.
 
-## `getDescrizioneAnteprima()`
+## Descrizione anteprima
+
+- **`getDescrizioneAnteprima()`**
 
 Restituisce la descrizione dell'immagine anteprima associata alla pagina.
 
@@ -22,9 +24,17 @@ function getDescrizioneAnteprima($id_pagina, $id_lingua) {
 }
 ```
 
-## `getTesto()`
+Esempio:
 
-Restituisce il contenuto testuale della pagina.
+```php
+<div class="testo"><?= $cube->getDescrizioneAnteprima(); ?></div>
+```
+
+## Testo
+
+- **`getTesto()`**
+
+Restituisce il testo associato pagina.
 
 ```php
 /**
@@ -37,9 +47,17 @@ function getTesto($id_pagina, $id_lingua) {
 }
 ```
 
-## `getTitolo()`
+Esempio:
 
-Restituisce il titolo principale della pagina.
+```php
+<div class="testo"><?= $cube->getTesto(); ?></div>
+```
+
+## Titolo
+
+- **`getTitolo()`**
+
+Restituisce il titolo della pagina.
 
 ```php
 /**
@@ -50,6 +68,12 @@ Restituisce il titolo principale della pagina.
 function getTitolo($id_pagina, $id_lingua) {
   ...
 }
+```
+
+Esempio:
+
+```php
+<h1 class="titolo"><?= $cube->getTitolo(); ?></h1>
 ```
 
 ## `getTitoloAnteprima()`

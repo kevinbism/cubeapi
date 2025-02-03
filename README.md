@@ -1,7 +1,5 @@
 # Cube API
 
-## 📖 Descrizione
-
 Cube API è un progetto che fornisce una documentazione completa e dettagliata delle API di Cube. Questo repository contiene la documentazione tecnica e le guide necessarie per integrare e utilizzare efficacemente le API di Cube nei tuoi progetti.
 
 ## 🎯 Scopo

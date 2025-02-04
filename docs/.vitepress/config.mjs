@@ -78,5 +78,8 @@ export default defineConfig({
         },
       },
     },
+    footer: {
+      copyright: "Copyright &copy; 2025 Blastness",
+    },
   },
 });

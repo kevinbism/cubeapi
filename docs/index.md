@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "Cube API"
-  text: "Guida completa alle API di Cube."
+  text: "Guida completa per lo sviluppo su Cube."
   image:
     src: /logo.png
     alt: Cube Logo

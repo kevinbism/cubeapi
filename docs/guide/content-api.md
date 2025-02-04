@@ -76,7 +76,9 @@ Esempio:
 <h1 class="titolo"><?= $cube->getTitolo(); ?></h1>
 ```
 
-## `getTitoloAnteprima()`
+## Titolo anteprima
+
+- **`getTitoloAnteprima()`**
 
 Restituisce il titolo dell'immagine anteprima associata alla pagina.
 
@@ -91,7 +93,15 @@ function getTitoloAnteprima($id_pagina, $id_lingua) {
 }
 ```
 
-## `getSottotitolo()`
+Esempio:
+
+```php
+<h3 class="titolo"><?= $cube->getTitoloAnteprima(); ?></h3>
+```
+
+## Sottotitolo
+
+- **`getSottotitolo()`**
 
 Restituisce il sottotitolo della pagina.
 
@@ -104,4 +114,10 @@ Restituisce il sottotitolo della pagina.
 function getSottotitolo($id_pagina, $id_lingua) {
   ...
 }
+```
+
+Esempio:
+
+```php
+<h2 class="sottotitolo"><?= $cube->getSottotitolo(); ?></h2>
 ```

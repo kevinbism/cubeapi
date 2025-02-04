@@ -12,9 +12,6 @@ hero:
     - theme: brand
       text: Iniziamo
       link: /guide/content-api
-    - theme: alt
-      text: Login Cube
-      link: https://cube.blastness.info/admin/index.php?
 
 features:
   - icon: 💻

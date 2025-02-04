@@ -28,7 +28,10 @@ export default defineConfig({
     darkModeSwitchLabel: "Aspetto",
     lightModeSwitchTitle: "Cambia a tema chiaro",
     darkModeSwitchTitle: "Cambia a tema scuro",
-    nav: [{ text: "Guida", link: "/guide/content-api" }],
+    nav: [
+      { text: "Guida", link: "/guide/content-api" },
+      { text: "Blastcube", link: "https://cube.blastness.info/admin/index.php" },
+    ],
     docFooter: {
       prev: "Pagina precedente",
       next: "Pagina successiva",
@@ -38,7 +41,7 @@ export default defineConfig({
         text: "Core Cube",
         collapsed: true,
         items: [
-          { text: "Contenuto", link: "/guide/content-api" },
+          { text: "Contenuti", link: "/guide/content-api" },
           { text: "Immagini", link: "/guide/images-api" },
           { text: "Lingue", link: "/guide/lang-api" },
           { text: "Pagina", link: "/guide/page-api" },

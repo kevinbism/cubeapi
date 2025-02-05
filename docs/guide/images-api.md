@@ -11,7 +11,7 @@ Questa documentazione descrive le funzioni disponibili per gestire le immagini s
 
 - **`getImg()`**
 
-Restituisce l'url dell'immagine desiderata.
+Restituisce l'url dell'immagine richiesta.
 
 ```php
 /**
@@ -34,15 +34,19 @@ function getImg($file, $type, $returnWebP = false) {
 Esempio:
 
 ```php
-// Utilizzando un modulo immagini di Cube.
+<?php
+// Utilizzando il modulo immagini di Cube.
 $images = $cube->getModulo('Immagine');
 
-<?php foreach ($images as $image) : ?>
+foreach ($images as $image) :
+?>
   <img class="immagine" src="<= $cube->getImg($image['files'], 'full', true); ?>">
 <?php endforeach; ?>
 ```
 
-## `getImgAnteprima()`
+## Immagine anteprima
+
+- **`getImgAnteprima()`**
 
 Restituisce l'url dell'immagine anteprima impostata.
 
@@ -57,7 +61,7 @@ function getImgAnteprima($id_pagina) {
 ```
 
 ::: details Nota sull'utilizzo
-Non è possibile utilizzare questa funzione separatamente; deve essere incorporata all'interno di `getImg()` o `getPicture()`. Ad esempio:
+Non è possibile utilizzare questa funzione separatamente ma deve essere incorporata all'interno di `getImg()` o `getPicture()`. Ad esempio:
 
 ```php
 $cube->getImg($cube->getImgAnteprima($img['files']));
@@ -69,9 +73,20 @@ $cube->getPicture($cube->getImgAnteprima($img['files']), [...]);
 
 :::
 
-## `getImgOfferta()`
+Esempio:
 
-Questa funzione recupera l'URL dell'immagine associata a una specifica offerta, identificata tramite `$id_albergo` e $`id_prodotto`. Il parametro opzionale `$main` consente di specificare se deve essere restituita l'immagine principale dell'offerta. La funzione restituisce l'URL dell'immagine richiesta.
+```php
+<img
+class="immagine"
+src="<?= $cube->getImg($cube->getImgAnteprima($cube->id_pagina)); ?>"
+>
+```
+
+## Immagine offerta
+
+- **`getImgOfferta()`**
+
+Questa funzione recupera l'URL dell'immagine associata a una specifica offerta, identificata tramite `$id_albergo` e `$id_prodotto`. Il parametro opzionale `$main` consente di specificare se deve essere restituita l'immagine principale dell'offerta. La funzione restituisce l'URL dell'immagine richiesta.
 
 ```php
 /**
@@ -85,9 +100,27 @@ function getImgOfferta($id_albergo, $id_prodotto, $main) {
 }
 ```
 
-## `getLogo()`
+Esempio:
 
-Questa funzione restituisce l'URL del logo specificato dal parametro `$file`.
+```php
+<?php
+// Utilizzando il modulo offerte di Cube.
+$offers = $cms->getModulo("Offerte");
+
+foreach ($offers as $offer) :
+  $id_albergo = $offer['offerta_id_albergo'];
+  $id_prodotto = $offer['offerta_id_prodotto'];
+  $imgOfferta = $cube->getImgOfferta($id_albergo, $id_prodotto, 'main');
+?>
+  <img class="immagine-offerta" src="<?= $imgOfferta; ?>">
+<?php endforeach; ?>
+```
+
+## Logo
+
+- **`getLogo()`**
+
+Questa funzione restituisce l'URL del logo in base al parametro `$file`.
 
 ```php
 /**
@@ -107,9 +140,20 @@ function getLogo($file, $id_struttura, $forceWebp = false) {
 | $id_struttura | string  | `$this->id_struttura` | Se non impostato, il valore della struttura coincide con quello della struttura corrente. È possibile specificare una struttura diversa modificando questo valore. |
 | $forceWebp    | boolean | `false`               | Consente di generare il logo in formato `.webp`.                                                                                                                   |
 
-## `getLogoP()`
+Esempio:
 
-Restituisce il logo del sito all'interno della struttura HTML `picture`.
+```php
+<img
+class="logo"
+src="<?= $cube->getLogo('logo', $cube->id_struttura, true); ?>"
+>
+```
+
+## Logo picture
+
+- **`getLogoP()`**
+
+Restituisce il logo del sito strutturato nel tag HTML `picture`.
 
 ```php
 /**
@@ -131,7 +175,7 @@ Opzioni configurabili:
 ```php
 [
   'file' => '',
-  'id_struttura' => '',
+  'id_struttura' => '', // Se non impostato, il valore della struttura coincide con quello della struttura corrente
   'title' => '',
   'class' => '',
   'classImg' => '',
@@ -142,9 +186,47 @@ Opzioni configurabili:
 ]
 ```
 
-I valori ammessi per `file` sono elencati su [`$file`](#getlogo).
+I valori ammessi per `'file'` sono elencati nella tabella [Logo](#logo).
 
-## `getLogoWebp()`
+Esempio:
+
+```php
+<a href="#home" class="link-logo">
+  <?= $cube->getLogoP([
+    'file' => 'logo',
+    'title' => 'Titolo logo',
+    'class' => 'logo',
+    'classImg' => 'logo-img',
+    'priority' => true,
+    'lazy' => true,
+    'width' => 200,
+    'height' => 200
+  ]);
+  ?>
+</a>
+```
+
+Output html:
+
+```html
+<a href="#home" class="link-logo">
+  <picture class="logo">
+    <source
+      srcset="https://cdn.blastness.biz/media/loghi/id_struttura/logo.webp"
+      type="image/webp" />
+    <img
+      class="logo-img"
+      width="200"
+      height="200"
+      src="https://cdn.blastness.biz/media/loghi/id_struttura/logo.png"
+      title="Titolo logo" />
+  </picture>
+</a>
+```
+
+## Logo Webp
+
+- **`getLogoWebp()`**
 
 Restituisce l'url del logo in formato `.webp`.
 
@@ -160,12 +242,23 @@ function getLogoWebp($file="", $id_struttura="") {
 ```
 
 :::tip INFO
-È possibile ottenere lo stesso formato dalla funzione [`getLogo()`](#getlogo).
+È possibile ottenere lo stesso formato direttamente dalla funzione [`getLogo()`](#logo).
 :::
 
-## `getPicture()`
+Esempio:
 
-Restituisce l'immagine desiderata all'interno della struttura HTML `picture`.
+```php
+<img
+class="logo"
+src="<?= $cube->getLogoWebp('logo', $cube->id_struttura); ?>"
+>
+```
+
+## Picture
+
+- **`getPicture()`**
+
+Restituisce l'immagine strutturata nel tag HTML `picture`.
 
 ```php
 /**
@@ -178,7 +271,7 @@ function getPicture($file, $opz=[]) {
 }
 ```
 
-### `$opz`
+<h3><code>$opz</code></h3>
 
 - Tipo: `Array`
 - Default: `[]`
@@ -199,4 +292,54 @@ Opzioni configurabili:
 ]
 ```
 
-I valori ammessi per `'type'` sono elencati su [`'$type'`](#getpicture).
+I valori ammessi per `'type'` sono elencati nella tabella [Immagine](#immagine).
+
+Esempio:
+
+```php
+<?php
+// Utilizzando il modulo immagini di Cube.
+$images = $cube->getModulo('Immagine');
+
+foreach ($images as $image) :
+?>
+<figure class="figure">
+  <?= $cms->getPicture(
+    $image['files'],
+    [
+      'type' => 'medium',
+      'title' => 'Titolo immagine',
+      'class' => 'picture',
+      'classImg' => 'immagine',
+      'priority' => true,
+      'lazy' => true,
+      'htmlToAppend' => '<p>Testo sotto immagine</p>',
+      'data' => ['test' => 'ciao'],
+      'mediaQuery' => [
+        '(max-width:769px)' => 'vertical_mobile',
+      ]
+    ]
+  );
+  ?>
+</figure>
+<?php endforeach; ?>
+```
+
+Output html:
+
+```html
+<figure class="figure">
+  <picture class="picture" data-test="ciao">
+    <source
+      srcset="https://cdn.blastness.biz/media/id_struttura/vertical_mobile/immagine.webp"
+      media="(max-width:769px)"
+      type="image/webp" />
+    <img
+      class="immagine"
+      alt="Titolo immagine"
+      title="Titolo immagine"
+      src="https://cdn.blastness.biz/media/id_struttura/medium/immagine.jpg" />
+    <p>Testo sotto immagine</p>
+  </picture>
+</figure>
+```

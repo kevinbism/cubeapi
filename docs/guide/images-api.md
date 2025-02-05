@@ -1,13 +1,15 @@
 ---
 title: API Immagini
-description: API per le immagini di Cube.
+description: Include metodi per ottenere URL di immagini, loghi e anteprime, con opzioni per formati e configurazioni diverse.
 ---
 
 # API Immagini
 
 Questa documentazione descrive le funzioni disponibili per gestire le immagini su Cube. Include metodi per ottenere URL di immagini, loghi e anteprime, con opzioni per formati e configurazioni diverse.
 
-## `getImg()`
+## Immagine
+
+- **`getImg()`**
 
 Restituisce l'url dell'immagine desiderata.
 
@@ -29,6 +31,17 @@ function getImg($file, $type, $returnWebP = false) {
 | $type       | string  | `full`  | `'thumbnail'` `'thumbnail_quad'` `'thumbnail_mobile'` `'full_moble'` `'vertical_mobile'` `'medium'` `'full'` |
 | $returnWebP | boolean | `false` | Consente di generare l'immagine in formato `.webp` per un caricamento più rapido.                            |
 
+Esempio:
+
+```php
+// Utilizzando un modulo immagini di Cube.
+$images = $cube->getModulo('Immagine');
+
+<?php foreach ($images as $image) : ?>
+  <img class="immagine" src="<= $cube->getImg($image['files'], 'full', true); ?>">
+<?php endforeach; ?>
+```
+
 ## `getImgAnteprima()`
 
 Restituisce l'url dell'immagine anteprima impostata.
@@ -47,11 +60,11 @@ function getImgAnteprima($id_pagina) {
 Non è possibile utilizzare questa funzione separatamente; deve essere incorporata all'interno di `getImg()` o `getPicture()`. Ad esempio:
 
 ```php
-$this->getImg($this->getImgAnteprima($img['files']));
+$cube->getImg($cube->getImgAnteprima($img['files']));
 
 // oppure
 
-$this->getPicture($this->getImgAnteprima($img['files']), [...]);
+$cube->getPicture($cube->getImgAnteprima($img['files']), [...]);
 ```
 
 :::

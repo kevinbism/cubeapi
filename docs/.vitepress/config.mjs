@@ -39,7 +39,6 @@ export default defineConfig({
     sidebar: [
       {
         text: "Core Cube",
-        collapsed: true,
         items: [
           { text: "Contenuti", link: "/guide/content-api" },
           { text: "Immagini", link: "/guide/images-api" },
@@ -52,7 +51,6 @@ export default defineConfig({
       },
       {
         text: "Code Snippets",
-        collapsed: true,
         items: [{ text: "Componenti", link: "/snippets/components" }],
       },
     ],
@@ -80,6 +78,12 @@ export default defineConfig({
     },
     footer: {
       copyright: "Copyright &copy; 2025 Blastness",
+    },
+  },
+  markdown: {
+    theme: {
+      light: "github-light",
+      dark: "material-theme-darker",
     },
   },
 });

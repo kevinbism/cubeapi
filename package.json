@@ -8,7 +8,8 @@
     "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
-    "@docsearch/js": "3"
+    "@docsearch/js": "3",
+    "shiki": "^2.3.1"
   },
   "prettier": {
     "singleAttributePerLine": false,

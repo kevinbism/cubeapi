@@ -83,7 +83,7 @@ export default defineConfig({
   markdown: {
     theme: {
       light: "github-light",
-      dark: "material-theme-darker",
+      dark: "laserwave",
     },
   },
 });

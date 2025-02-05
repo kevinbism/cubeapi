@@ -5,7 +5,7 @@ description: Include metodi per ottenere URL di immagini, loghi e anteprime, con
 
 # API Immagini
 
-Questa documentazione descrive le funzioni disponibili per gestire le immagini su Cube. Include metodi per ottenere URL di immagini, loghi e anteprime, con opzioni per formati e configurazioni diverse.
+Questa sezione descrive le funzioni disponibili per gestire le immagini su Cube. Include metodi per ottenere URL di immagini, loghi e anteprime, con opzioni per formati e configurazioni diverse.
 
 ## Immagine
 

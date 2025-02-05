@@ -48,7 +48,7 @@ public function getInfoPadre($id_lingua="") {
 
 Esempio:
 
-```
+```text
 Home
 Camere/
 ├── Monolocale
@@ -70,7 +70,9 @@ $infoPadre = [
 ]
 ```
 
-## `getLinkPadre()`
+## Link padre
+
+- **`getLinkPadre()`**
 
 Se la pagina corrente è una pagina figlia restituisce il link della pagina padre.
 
@@ -83,9 +85,11 @@ public function getLinkPadre() {
 }
 ```
 
-## `getLinkPaginaGallery()`
+## Link pagina gallery
 
-Di default restituisce il link della pagina gallery del sito.
+- **`getLinkPaginaGallery()`**
+
+Restituisce il link della pagina **gallery** del sito.
 
 ```php
 /**
@@ -97,9 +101,11 @@ public function getLinkPaginaGallery($modello = 'Gallery') {
 }
 ```
 
-## `getLinkPaginaModello()`
+## Link pagina modello
 
-Restituisce un array delle pagine in base al modello inserito. Nel caso ci sia un solo valore nell'array restiusce una stringa. Se `$modello` non viene valorizzato di default restuisce la pagina delle offerte.
+- **`getLinkPaginaModello()`**
+
+Questa funzione restituisce gli URL delle pagine in base al modello scelto. Se vengono trovate più pagine, riceverai un array di URL, mentre se viene trovata una sola pagina riceverai direttamente l'URL come stringa. Nel caso in cui non specifichi un modello, riceverai automaticamente l'URL della pagina delle offerte.
 
 ```php
 /**
@@ -111,9 +117,11 @@ public function getLinkPaginaModello($modello = 'Offerte') {
 }
 ```
 
-## `getLinkPaginaOfferte()`
+## Link pagina offerte
 
-Di default restituisce il link della pagina offerte del sito.
+- **`getLinkPaginaOfferte()`**
+
+Restituisce il link della pagina offerte del sito.
 
 ```php
 /**
@@ -125,21 +133,25 @@ public function getLinkPaginaOfferte($modello = 'Offerte') {
 }
 ```
 
-## `getModello()`
+## Modello
 
-Restituisce l'`id_modello` del modello desiderato.
+- **`getModello()`**
+
+Restituisce l'`id_modello` richiesto.
 
 ```php
 /**
 * @param $modello
-* @return int
+* @return mixed
 **/
 public function getModello($modello) {
   ...
 }
 ```
 
-## `getPagineModello()`
+## Pagine modello
+
+- **`getPagineModello()`**
 
 Questa funzione restituisce un array contenente l'elenco delle pagine che utilizzano il modello specificato. Utilizzando il parametro `$link`, è possibile ottenere gli URL di tutte le pagine che utilizzano tale modello altrimenti l'array conterrà l'`id_pagina` come valore. Il parametro `$onlyActive` consente di filtrare solo le pagine attive.
 
@@ -155,7 +167,9 @@ public function getPagineModello($modello, $link=false, $onlyActive=false) {
 }
 ```
 
-## `info_modello()`
+## Info modello
+
+- **`info_modello()`**
 
 In base al parametro `$campo` permette di accedere alle informazioni del modello.
 
@@ -186,7 +200,9 @@ Valori ammessi:
 - `sub_classe`
 - `visibile`
 
-## `getPagineFigli()`
+## Pagine figli
+
+- **`getPagineFigli()`**
 
 Se sono presenti pagine di livello inferiore restituisce un array con l'elenco delle pagine.
 
@@ -201,7 +217,9 @@ public function getPagineFigli($id_menu, $id_pagina='') {
 }
 ```
 
-## `getVar()`
+## Variabili
+
+- **`getVar()`**
 
 Restituisce il valore impostato alla pagina o alla struttura di Cube.
 
@@ -216,7 +234,9 @@ public function getVar($slug, $pagina_o_struttura='') {
 }
 ```
 
-## `get_page_url()`
+## Page URL
+
+- **`get_page_url()`**
 
 Restituisce l'url della pagina corrente.
 
@@ -229,9 +249,11 @@ public function get_page_url() {
 }
 ```
 
-## `lg_testo()`
+## Landing testo
 
-Restituisce un `div` con all'interno la stringa `|*testo*|` per poter stampare il contenuti settato da Landing Generator.
+- **`lg_testo()`**
+
+Restituisce un `div` con all'interno la stringa `|*testo*|` per poter stampare i contenuti inseriti su Landing Generator.
 
 ```php
 /**

@@ -3,9 +3,13 @@ title: API Contenuti
 description: API per i contenuti di Cube.
 ---
 
-# API per i contenuti Contenuti
+# API Contenuti
 
 Esplora le funzioni essenziali di Cube con questa pratica guida! Scopri le varie opzioni disponibili per ogni parametro e semplifica il tuo utilizzo del sistema.
+
+:::warning Premessa
+In questa guida si utilizza `$cube` al posto di `$this` come nome dell'istanza. È puramente estetico. Potete continuare a usare `$this` per chiamare i metodi e le funzioni di Cube.
+:::
 
 ## Descrizione anteprima
 

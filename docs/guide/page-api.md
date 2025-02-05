@@ -5,9 +5,13 @@ description: API per le pagine di Cube.
 
 # API Pagina
 
-## `getIdModulo()`
+Questa sezione descrive le funzioni disponibili per gestire le pagine su Cube. Include metodi per ottenere informazioni sui moduli, link delle pagine, modelli e variabili di pagina.
 
-Tramite la chiave `$modulo` consente di verificare l'`id_modulo` del modulo desiderato.
+## ID modulo
+
+- **`getIdModulo()`**
+
+Tramite il parametro `$modulo`, che in questo caso corrisponde al nome di un modulo su Cube, è possibile richiedere l'`id_modulo`.
 
 ```php
 /**
@@ -19,7 +23,16 @@ public function getIdModulo($modulo) {
 }
 ```
 
-## `getInfoPadre()`
+Esempio:
+
+```php
+$idModuloCamere = $cube->getIdModulo('Modulo camere');
+// return -> '12345' corrispondente all'id_modulo camere
+```
+
+## Info padre
+
+- **`getInfoPadre()`**
 
 Se la pagina corrente è una pagina figlia restituisce il `testo_link`, `url` e `titolo` della pagina padre sotto forma di array.
 
@@ -31,6 +44,30 @@ Se la pagina corrente è una pagina figlia restituisce il `testo_link`, `url` e 
 public function getInfoPadre($id_lingua="") {
   ...
 }
+```
+
+Esempio:
+
+```
+Home
+Camere/
+├── Monolocale
+├── Suite
+└── Junior suite
+Offerte
+Gallery
+```
+
+```php{5-9}
+// All'interno della pagina Suite chiamo la funzione
+$infoPadre = $cube->getIndoPadre();
+
+// $infoPadre conterrà le seguenti informazioni
+$infoPadre = [
+  "testo_link" => "Camere",
+  "url" => "https://cube.blastdemo.com/camere",
+  "titolo" => "Camere"
+]
 ```
 
 ## `getLinkPadre()`

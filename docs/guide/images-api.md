@@ -5,6 +5,8 @@ description: API per le immagini di Cube.
 
 # API Immagini
 
+Questa documentazione descrive le funzioni disponibili per gestire le immagini su Cube. Include metodi per ottenere URL di immagini, loghi e anteprime, con opzioni per formati e configurazioni diverse.
+
 ## `getImg()`
 
 Restituisce l'url dell'immagine desiderata.
@@ -127,7 +129,7 @@ Opzioni configurabili:
 ]
 ```
 
-I valori ammessi per `file` sono elencati su [`$file`](#file).
+I valori ammessi per `file` sono elencati su [`$file`](#getlogo).
 
 ## `getLogoWebp()`
 
@@ -163,7 +165,7 @@ function getPicture($file, $opz=[]) {
 }
 ```
 
-<h3><code>$opz</code></h3>
+### `$opz`
 
 - Tipo: `Array`
 - Default: `[]`
@@ -184,4 +186,4 @@ Opzioni configurabili:
 ]
 ```
 
-I valori ammessi per `'type'` sono elencati su [`'$type'`](#type).
+I valori ammessi per `'type'` sono elencati su [`'$type'`](#getpicture).

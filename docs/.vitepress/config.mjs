@@ -23,6 +23,7 @@ export default defineConfig({
   ],
   themeConfig: {
     logo: "/logo.png",
+    socialLinks: [{ icon: "github", link: "https://github.com/kevinbism/cubeapi" }],
     outlineTitle: "Panoramica",
     returnToTopLabel: "Torna su",
     darkModeSwitchLabel: "Aspetto",

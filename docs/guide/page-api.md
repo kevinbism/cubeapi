@@ -121,7 +121,7 @@ public function getLinkPaginaModello($modello = 'Offerte') {
 
 - **`getLinkPaginaOfferte()`**
 
-Restituisce il link della pagina offerte del sito.
+Restituisce il link della pagina **offerte** del sito.
 
 ```php
 /**
@@ -184,27 +184,18 @@ public function info_modello($campo, $id_modello) {
 }
 ```
 
-<h3><code>$campo</code></h3>
-
-- Tipo: `String`
-- Default: `null`
-
-Valori ammessi:
-
-- `id_duplica`
-- `id_modello`
-- `id_sito`
-- `modello`
-- `nascondi_info`
-- `ordine`
-- `sub_classe`
-- `visibile`
+| Parametro | Tipo   | Default | Valori ammessi o breve descrizione                                                                             |
+| --------- | ------ | ------- | -------------------------------------------------------------------------------------------------------------- |
+| $campo    | string | `null`  | `'id_duplica'` `'id_modello'` `'id_sito'` `'modello'` `'nascondi_info'` `'ordine'` `'sub_classe'` `'visibile'` |
 
 ## Pagine figli
 
 - **`getPagineFigli()`**
 
-Se sono presenti pagine di livello inferiore restituisce un array con l'elenco delle pagine.
+Se sono presenti pagine di secondo livello restituisce un array con l'elenco delle pagine e altre informazioni.
+:::info NOTA BENE
+È indispensabile inserire l'`$id_menu` altrimenti non verrà resituito nulla e il sito andrà in errore.
+:::
 
 ```php
 /**
@@ -215,6 +206,22 @@ Se sono presenti pagine di livello inferiore restituisce un array con l'elenco d
 public function getPagineFigli($id_menu, $id_pagina='') {
   ...
 }
+```
+
+Esempio:
+
+```text title="Prova"
+Home
+Camere/
+├── Monolocale
+├── Suite
+└── Junior suite
+Offerte
+Gallery
+```
+
+```javascript [Sito php]
+console.log("ciao");
 ```
 
 ## Variabili

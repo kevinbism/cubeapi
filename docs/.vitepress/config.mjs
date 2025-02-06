@@ -1,4 +1,5 @@
 import { defineConfig } from "vitepress";
+import { groupIconMdPlugin, groupIconVitePlugin } from "vitepress-plugin-group-icons";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -86,5 +87,11 @@ export default defineConfig({
       light: "github-light",
       dark: "laserwave",
     },
+    config(md) {
+      md.use(groupIconMdPlugin);
+    },
+  },
+  vite: {
+    plugins: [groupIconVitePlugin()],
   },
 });

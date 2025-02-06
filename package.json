@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "@docsearch/js": "3",
-    "shiki": "^2.3.1"
+    "shiki": "^2.3.1",
+    "vitepress-plugin-group-icons": "^1.3.5"
   },
   "prettier": {
     "singleAttributePerLine": false,

@@ -123,9 +123,11 @@ public function info_sito($campo, $id_sito="") {
 | $campo    | string | `null`  | `'id_sito'` `'id_progetto'` `'maintenance'` `'cache'` `'migrate'` `'tipo'` `'sito'` `'brand'` `'dominio'` `'google_analytics'` `'allowlinker'` `'templates'` `'estensione'` `'tipo_booking'` `'recaptcha_site_key'` `'recaptcha_secret_key'` `'online'` `'composer'` `'assistente_prenotazione'` `'formati_img'` `'var_routing'` `'solo_pressroom'` `'mostra_ricerca'` `'multidomain'` `'impostazioni_template'` `'preset_notti'` `'preset_camere'` `'preset_adulti'` `'preset_bambini'` `'cookie_banner'` `'script_head'` `'google_map_key'` `'auto_include'` `'aws_cdn'` `'genera_altri_formati'` `'sito_offline'` `'data_analisi_mobile'` `'data_analisi_desktop'` `'analisi_mobile'` `'analisi_desktop'` `'disable_style_text_direction'` `'funzionalita'` `'id_duplica'` |
 | $id_sito  | string | `null`  | Se `$id_sito` non è impostato, viene utilizzato automaticamente l'ID della struttura attuale.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
-## `is_group()`
+## Gruppo
 
-Consente di capire se la struttura è un gruppo o no.
+- **`is_group()`**
+
+Consente di capire se la struttura è un gruppo. Il valore di ritorno è `true` o `false`.
 
 ```php
 /**
@@ -133,6 +135,14 @@ Consente di capire se la struttura è un gruppo o no.
 **/
 public function is_group() {
   ...
+}
+```
+
+Esempio:
+
+```php
+if ($cube->is_group()) {
+  // Codice quando la struttura è un gruppo.
 }
 ```
 

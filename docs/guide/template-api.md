@@ -5,55 +5,6 @@ description: API per le configurazioni del template di Cube.
 
 # Template API
 
-## Banner cookie v1 <Badge type="danger" text="deprecata" />
-
-- **`banner_cookie_v1()`**
-
-Restitusci la prima versione del banner cookies di Cube.
-
-```php
-/**
-* @param string $style
-* @param string $link_txt
-* @param string $tipo
-* @param string $pulsante
-* @return html
-**/
-public function banner_cookie_v1($style="divascookies_style_dark_top", $link_txt="", $tipo="esteso", $pulsante="") {
-  ...
-}
-```
-
-## Banner cookie v2
-
-- **`banner_cookie_v2()`**
-
-Restitusci la seconda versione del banner cookies di Cube.
-
-```php
-/**
-* @return html:script
-**/
-public function banner_cookie_v2() {
-  ...
-}
-```
-
-## Banner cookie v3 <Badge type="info" text="default" />
-
-- **`banner_cookie_new_v3()`**
-
-Restitusci la terza versione del banner cookies di Cube.
-
-```php
-/**
-* @return html:script
-**/
-public function banner_cookie_new_v3() {
-  ...
-}
-```
-
 ## ID struttura
 
 - **`getIDStruttura()`**
@@ -146,9 +97,11 @@ if ($cube->is_group()) {
 }
 ```
 
-## `link_group()`
+## Link gruppo
 
-Restituisce l'url della home page del gruppo.
+- **`link_group()`**
+
+Restituisce l'URL della home page del gruppo.
 
 ```php
 /**
@@ -159,9 +112,11 @@ public function link_group() {
 }
 ```
 
-## `link_to()`
+## Link to
 
-Consente tramite il paramentro `$struttura` di ottenere il link della home page di una determinata struttura.
+- **`link_to()`**
+
+Consente tramite il paramentro `$struttura` di ottenere il link della home page di una specifica struttura.
 
 ```php
 /**
@@ -173,16 +128,28 @@ public function link_to($struttura) {
 }
 ```
 
-## `numero_strutture()`
+## Numero strutture
 
-Tramite il paramentro `$id_sito` permette capire quante strutture sono presente all'interno del gruppo.
+- **`numero_strutture()`**
+
+Tramite il paramentro `$id_sito` è possibile sapere quante strutture sono presente all'interno del gruppo.
 
 ```php
 /**
 * @param $id_sito
-* @return mixed
+* @return int
 **/
 public function numero_strutture($id_sito) {
   ...
 }
+```
+
+In questo caso `$id_sito` non viene impostato automaticamente ma è possibile ottenere questo dato tramite la funzione `info_sito()`. Esempio:
+
+```php
+$numeroStrutture = $cube->numero_strutture($cube->info_sito('id_sito'));
+
+// oppure tramite la proprietà $cube->id_sito
+
+$numeroStrutture = $cube->numero_strutture($cube->id_sito);
 ```

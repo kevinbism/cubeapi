@@ -5,28 +5,11 @@ description: API per le configurazioni del template di Cube.
 
 # Template API
 
-## `ajax_set()`
+## Banner cookie v1 <Badge type="danger" text="deprecata" />
 
-Permette di risettare i parametri della struttura.
+- **`banner_cookie_v1()`**
 
-```php
-/**
-* @param $id_sito
-* @param $id_pagina
-* @param $id_lingua
-* @param $id_sito_
-* @param $sigla_lingua
-* @param $tipo_booking
-* @param $id_struttura
-**/
-public function ajax_set($id_sito, $id_pagina, $id_lingua, $id_sito_, $sigla_lingua, $tipo_booking, $id_struttura) {
-  ...
-}
-```
-
-## `banner_cookie_v1()` <Badge type="danger" text="deprecata" />
-
-Restitusci la prima versione del banner cookies idel sito.
+Restitusci la prima versione del banner cookies di Cube.
 
 ```php
 /**
@@ -41,9 +24,11 @@ public function banner_cookie_v1($style="divascookies_style_dark_top", $link_txt
 }
 ```
 
-## `banner_cookie_v2()`
+## Banner cookie v2
 
-Restitusci la seconda versione del banner cookies del sito.
+- **`banner_cookie_v2()`**
+
+Restitusci la seconda versione del banner cookies di Cube.
 
 ```php
 /**
@@ -54,9 +39,11 @@ public function banner_cookie_v2() {
 }
 ```
 
-## `banner_cookie_new_v3()` <Badge type="tip" text="default" />
+## Banner cookie v3 <Badge type="info" text="default" />
 
-Restitusci la terza versione del banner cookies del sito.
+- **`banner_cookie_new_v3()`**
+
+Restitusci la terza versione del banner cookies di Cube.
 
 ```php
 /**
@@ -67,22 +54,12 @@ public function banner_cookie_new_v3() {
 }
 ```
 
-## `fnBannerCookie()`
+## ID struttura
 
-Restitusci la prima o la seconda versione del banner cookies in base alle impostazioni del sito.
+- **`getIDStruttura()`**
 
-```php
-/**
-* @return function
-**/
-public function fnBannerCookie() {
-  ...
-}
-```
-
-## `getIDStruttura()`
-
-In base al parametro `$id_sito` restiusce l'`id_struttura` desiderata.
+Restituisce l'id_struttura corrispondente al valore del parametro `$id_sito`.<br>
+Se `$id_sito` non è impostato, viene utilizzato automaticamente l'ID della struttura attuale.
 
 ```php
 /**
@@ -94,9 +71,11 @@ public function getIDStruttura($id_sito="") {
 }
 ```
 
-## `getListaStrutture()`
+## Lista strutture
 
-Questa funzione permette di recuperare un elenco di strutture in base al parametro `$id_sito` fornito. È possibile specificare i campi da recuperare utilizzando l'array `$campi`, applicare filtri utilizzando gli array `$filtro` e `$valorefiltro`, specificare un raggruppamento con `$groupBy`, e ordinare i risultati con `$orderBy`.
+- **`getListaStrutture()`**
+
+Questa funzione permette di recuperare l'elenco delle strutture in base al parametro `$id_sito` fornito. È possibile specificare i campi da recuperare utilizzando l'array `$campi`, applicare filtri utilizzando gli array `$filtro` e `$valorefiltro`, specificare un raggruppamento con `$groupBy`, e ordinare i risultati con `$orderBy`.
 
 ```php
 /**
@@ -112,6 +91,15 @@ public function getListaStrutture($campi = [], $filtro = [], $valorefiltro = [],
   ...
 }
 ```
+
+| Parametro     | Tipo   | Default | Valori ammessi o breve descrizione                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| ------------- | ------ | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| $campi        | array  | `[]`    | `'id_struttura'` `'nome_struttura'` `'indirizzo'` `'telefono'` `'attivo'` `'mobile'` `'fax'` `'email'` `'partita_iva'` `'mostra_nel_qr'` `'google_map'` `'localita'` `'caratteristica'` `'social_fb'` `'social_twitter'` `'social_google'` `'social_istagram'` `'social_youtube'` `'social_tripadvisor'` `'social_whatsapp'` `'social_linkedin'` `'booking_domain'` `'id_gruppo'` `'id_albergo'` `'id_stile'` `'dc_gruppo'` `'dc'` `'id_albergo_servizi'` `'id_stile_servizi'` `'dc_servizi'` `'id_mailing'` `'tabella_mailing'` `'action_mailing'` `'club_id_mailing'` `'club_tabella_mailing'` `'club_action_mailing'` `'club_codice_sconto'` `'shop_id'` |
+| $filtro       | array  | `[]`    | Array usato per filtrare il risultato della query. `$filtro` deve contenere valori corrispondenti a `$campi` (esempio: `['caratteristica', 'attivo', 'id_gruppo']`)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| $valorefiltro | array  | `[]`    | Array usato per filtrare il risultato della query. `$valorefiltro` deve contenere valori corrispondenti alle colonne specificate in `$filtro`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| $groupBy      | string | `null`  | Specifica il valore per raggruppare i risultati. Quando trova un gruppo restituisce sempre il primo valore, mentre gli altri valori del gruppo vengono esclusi dalla query.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| $orderBy      | string | `null`  | Specifica l'ordinamento dei risultati. Puoi includere la direzione `ASC`/`DESC` (es: `'nome_struttura ASC'`, `'id_struttura DESC'`).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| $id_sito      | string | `null`  | Se `$id_sito` non è impostato, viene utilizzato automaticamente l'ID della struttura attuale.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 
 ## `info_sito()`
 

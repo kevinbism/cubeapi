@@ -40,7 +40,7 @@ Restituisce l'`id_lingua` di default del sito. Utile per recuperari moduli, arti
 /**
 * @param string $id_sito
 * @param string $id_struttura
-* @return number
+* @return int
 **/
 public function lingua_default($id_sito="", $id_struttura="") {
   ...
@@ -62,7 +62,7 @@ Restituisce la lingua di navigazione in base a `$id_lingua` e `$tipo_lingua`.
 
 ```php
 /**
-* @param number $id_lingua
+* @param int $id_lingua
 * @param string $tipo_lingua
 * @return string
 **/

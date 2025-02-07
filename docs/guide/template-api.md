@@ -101,7 +101,9 @@ public function getListaStrutture($campi = [], $filtro = [], $valorefiltro = [],
 | $orderBy      | string | `null`  | Specifica l'ordinamento dei risultati. Puoi includere la direzione `ASC`/`DESC` (es: `'nome_struttura ASC'`, `'id_struttura DESC'`).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | $id_sito      | string | `null`  | Se `$id_sito` non è impostato, viene utilizzato automaticamente l'ID della struttura attuale.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 
-## `info_sito()`
+## Info sito
+
+- **`info_sito()`**
 
 In base al parametro `$campo` permette di accedere alle impostazioni del sito.
 
@@ -116,39 +118,10 @@ public function info_sito($campo, $id_sito="") {
 }
 ```
 
-### `$campo`
-
-- Tipo: `String`
-- Default: `null`
-
-Valori ammessi:
-
-- `allowlinker`
-- `brand`
-- `cache`
-- `composer`
-- `cookie_banner`
-- `dominio`
-- `estensione`
-- `google_analytics`
-- `id_progetto`
-- `id_sito`
-- `maintenance`
-- `migrate`
-- `mostra_ricerca`
-- `multidomain`
-- `online`
-- `preset_adulti`
-- `preset_bambini`
-- `preset_camere`
-- `preset_notti`
-- `recaptcha_secret_key`
-- `recaptcha_site_key`
-- `sito`
-- `solo_pressroom`
-- `templates`
-- `tipo`
-- `tipo_booking`
+| Parametro | Tipo   | Default | Valori ammessi o breve descrizione                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --------- | ------ | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| $campo    | string | `null`  | `'id_sito'` `'id_progetto'` `'maintenance'` `'cache'` `'migrate'` `'tipo'` `'sito'` `'brand'` `'dominio'` `'google_analytics'` `'allowlinker'` `'templates'` `'estensione'` `'tipo_booking'` `'recaptcha_site_key'` `'recaptcha_secret_key'` `'online'` `'composer'` `'assistente_prenotazione'` `'formati_img'` `'var_routing'` `'solo_pressroom'` `'mostra_ricerca'` `'multidomain'` `'impostazioni_template'` `'preset_notti'` `'preset_camere'` `'preset_adulti'` `'preset_bambini'` `'cookie_banner'` `'script_head'` `'google_map_key'` `'auto_include'` `'aws_cdn'` `'genera_altri_formati'` `'sito_offline'` `'data_analisi_mobile'` `'data_analisi_desktop'` `'analisi_mobile'` `'analisi_desktop'` `'disable_style_text_direction'` `'funzionalita'` `'id_duplica'` |
+| $id_sito  | string | `null`  | Se `$id_sito` non è impostato, viene utilizzato automaticamente l'ID della struttura attuale.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
 ## `is_group()`
 

@@ -58,8 +58,7 @@ Offerte
 Gallery
 ```
 
-```php{5-9}
-// All'interno della pagina Suite chiamo la funzione
+```php{5-9} [Dentro la pagina Suite eseguo la funzione]
 $infoPadre = $cube->getIndoPadre();
 
 // $infoPadre conterrà le seguenti informazioni
@@ -171,7 +170,7 @@ public function getPagineModello($modello, $link=false, $onlyActive=false) {
 
 - **`info_modello()`**
 
-In base al parametro `$campo` permette di accedere alle informazioni del modello.
+In base al parametro `$campo` e `$id_modello` permette di accedere alle informazioni del modello.
 
 ```php
 /**
@@ -210,25 +209,61 @@ public function getPagineFigli($id_menu, $id_pagina='') {
 
 Esempio:
 
-```text title="Prova"
+```text
 Home
 Camere/
 ├── Monolocale
-├── Suite
 └── Junior suite
 Offerte
 Gallery
 ```
 
-```javascript [Sito php]
-console.log("ciao");
+```php [Dentro la pagina Camere eseguo la funzione]
+// In questo caso l'$id_menu specificato è il 'Menu Top'
+$pagineFigli = $cube->getPagineFigli('Menu Top');
+print_r($pagineFigli);
+
+// Esempio output:
+Array(
+  [67482] => Array(
+    [id_menu_voci] => 67482
+    [testo_link] => Monolocale
+    [icona] =>
+    [link] => /monolocale
+    [id_pagina] => 91546
+    [tipo] => 0
+    [active] =>
+    [mostra_menu] =>
+    [parent_id] => 67471
+    [depth] => 1
+    [target] => _self
+    [id_struttura] => 2307
+    [figli] => Array()
+  )
+
+  [67488] => Array(
+    [id_menu_voci] => 67488
+    [testo_link] => Junior suite
+    [icona] =>
+    [link] => /junior-suite
+    [id_pagina] => 91563
+    [tipo] => 0
+    [active] =>
+    [mostra_menu] =>
+    [parent_id] => 67471
+    [depth] => 1
+    [target] => _self
+    [id_struttura] => 2307
+    [figli] => Array()
+  )
+)
 ```
 
 ## Variabili
 
 - **`getVar()`**
 
-Restituisce il valore impostato alla pagina o alla struttura di Cube.
+Nella sezione _Aspetto -> Variabili_ su Cube puoi impostare variabili specifiche per la pagina o per la struttura. Per ottenere il valore di una variabile, utilizza la funzione `getVar()` passando come parametro lo `$slug` corrispondente alla variabile desiderata.
 
 ```php
 /**

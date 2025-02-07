@@ -9,7 +9,7 @@ Di seguito ci sono diversi esempi di componenti che è possibile utilizzare all'
 
 ## Image
 
-```php
+```php [Image.php]
 <?php
 global $cms;
 $classList = explode(' ', $class);
@@ -46,11 +46,8 @@ foreach ($cms->getModulo('immagini') as $img) {
 
 ## Link
 
-```html
-<a
-  href="<?= $link['link'] ?>"
-  target="<?= $link['target'] ?>"
-  class="<?= $class ?>">
+```php [Link.php]
+<a href="<?= $link['link'] ?>" target="<?= $link['target'] ?>" class="<?= $class ?>">
   <?= $link['label'] ?>
 </a>
 ```

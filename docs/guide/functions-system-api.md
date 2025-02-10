@@ -5,9 +5,11 @@ description: API utili di Cube.
 
 # Funzioni di sistema
 
-## `cube_favico()`
+## Cube favico
 
-Restiusce la favicon preimpostata nel sito. Di default la funzione viene utilizzata all'interno di <a href="#cube-head">`cube_head()`</a>.
+- **`cube_favico()`**
+
+Restiusce una struttura HTML con la favicon preimpostata nel sito. Di default la funzione viene utilizzata all'interno di [`cube_head()`](#cube-head).
 
 ```php
 /**
@@ -18,9 +20,11 @@ function cube_favico() {
 }
 ```
 
-## `cube_footer()`
+## Cube footer
 
-Include il banner dei cookie e tutti gli script necessari e funzionali, come Google Tag Manager o altri script personalizzati. È essenziale posizionare questa funzione alla fine di ogni progetto per garantire il corretto funzionamento dei componenti.
+- **`cube_footer()`**
+
+Include il banner dei cookie e tutti gli script necessari e funzionali, come Google Tag Manager o altri script personalizzati. È essenziale posizionare questa funzione alla fine di ogni progetto e prima della chiusura del tag `body` per garantire il corretto funzionamento.
 
 ```php
 /**
@@ -31,9 +35,11 @@ function cube_footer() {
 }
 ```
 
-## `cube_head()`
+## Cube head
 
-Stampa i metadati fondamentali per l'indicizzazione del sito. È essenziale inserire questa funzione all'interno del tag `<head>` del documento HTML.
+- **`cube_head()`**
+
+Stampa tutti i metadati fondamentali per l'indicizzazione del sito. È essenziale inserire questa funzione all'interno del tag `<head>` del documento HTML.
 
 ```php
 /**
@@ -44,9 +50,11 @@ function cube_head() {
 }
 ```
 
-## `cube_global_parts()`
+## Cube global parts
 
-Consente di definire componenti globali per l'uso su più progetti. Per definire componenti locali, consulta <a href="#cube-parts">`cube_parts()`</a>.
+- **`cube_global_parts()`**
+
+Consente di definire componenti globali per l'uso su più progetti. Per definire componenti locali, consulta [`cube_parts()`](#cube-parts).
 
 ```php
 /**
@@ -60,9 +68,11 @@ function cube_global_parts($file, $variables = array(), $print = true) {
 }
 ```
 
-## `cube_parts()`
+## Cube parts
 
-Stampa il contenuto di un file `.php` come componente.
+- **`cube_parts()`**
+
+Permette di includere un file PHP, selezionando dinamicamente il percorso in base alle impostazioni del sito e del template. Inoltre, permette di passare variabili, facilitando la creazione e la gestione di componenti.
 
 ```php
 /**
@@ -80,23 +90,10 @@ Il parametro predefinito `$print` è impostato su `true`, quindi non è necessar
 
 ```php
 // Metodo corretto
-<?php $this->cube_parts('components.my-component'); ?> // [!code ++]
+$this->cube_parts('components.my-component'); // [!code ++]
 
 // Metodo sbagliato
-<?= $this->cube_parts('components.my-component'); ?> // [!code error]
+echo $this->cube_parts('components.my-component'); // [!code error]
 ```
 
-## `cube_theme_roller()`
-
-Questa funzione consente di includere le impostazioni di stile per il tuo progetto tramite un file `settings.json`.
-
-```php
-/**
-* @param bool $opz
-* @param string $id_sito
-* @return string[]
-**/
-function cube_parts($opz = false, $id_sito) {
-  ...
-}
-```
+Per qualche esempio pratico consulta la pagina [Componenti](/snippets/components)

@@ -22,11 +22,35 @@ public function getIDStruttura($id_sito="") {
 }
 ```
 
+## Info struttura
+
+- **`getInfoStruttura()`**
+
+Questa funzione permette di accedere alle informazioni della struttura in base al parametro `$campo`.
+
+```php
+/**
+* @param string $campo
+* @param int $id_struttura
+* @param string $opz
+* @return string
+**/
+public function getInfoStruttura($campo, $id_struttura="", $opz="id_struttura") {
+  ...
+}
+```
+
+| Parametro     | Tipo   | Default               | Valori ammessi o breve descrizione                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ------------- | ------ | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| $campo        | string | `null`                | `'id_struttura'` `'id_sito'` `'id_struttura_padre'` `'attivo'` `'nome_struttura'` `'interfaccia'` `'tipo'` `'indirizzo'` `'telefono'` `'mobile'` `'fax'` `'email'` `'partita_iva'` `'sito_web'` `'booking_domain'` `'id_stile'` `'id_albergo'` `'dc'` `'dc_gruppo'` `'id_gruppo'` `'id_mailing'` `'tabella_mailing'` `'action_mailing'` `'club_id_mailing'` `'club_tabella_mailing'` `'club_action_mailing'` `'club_codice_sconto'` `'google_map'` `'localita'` `'caratteristica'` `'id_stile_servizi'` `'id_albergo_servizi'` `'dc_servizi'` `'social_fb'` `'social_twitter'` `'social_google'` `'social_istagram'` `'social_youtube'` `'social_tripadvisor'` `'social_whatsapp'` `'social_linkedin'` `'mostra_nel_qr'` `'ordine'` `'gestione_offerte_gruppo'` `'visibility'` `'script'` `'shop_id'` `'id_duplica'` |
+| $id_struttura | string | `$cube->id_struttura` | Quando questo parametro non viene specificato, in automatico imposta l'`id_stuttura` del progetto in cui si sta lavorando.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| $opz          | string | `id_struttura`        | È possibile scegliere l'impostazione dall'`id_struttura` oppure dall'`id_sito`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+
 ## Lista strutture
 
 - **`getListaStrutture()`**
 
-Questa funzione permette di recuperare l'elenco delle strutture in base al parametro `$id_sito` fornito. È possibile specificare i campi da recuperare utilizzando l'array `$campi`, applicare filtri utilizzando gli array `$filtro` e `$valorefiltro`, specificare un raggruppamento con `$groupBy`, e ordinare i risultati con `$orderBy`.
+Questa funzione permette di recuperare l'elenco delle strutture in base al parametro `$id_sito` fornito. Inoltre è possibile specificare i campi da recuperare utilizzando l'array `$campi`, applicare filtri utilizzando gli array `$filtro` e `$valorefiltro`, specificare un raggruppamento con `$groupBy`, e ordinare i risultati con `$orderBy`.
 
 ```php
 /**
@@ -152,4 +176,20 @@ $numeroStrutture = $cube->numero_strutture($cube->info_sito('id_sito'));
 // oppure tramite la proprietà $cube->id_sito
 
 $numeroStrutture = $cube->numero_strutture($cube->id_sito);
+```
+
+## Strutture <Badge type="warning" text="Da completare" />
+
+- **`getStrutture()`**
+
+Consente di ricevere l'elenco delle strutture di un determinato sito.
+
+```php
+/**
+* @param string $id_sito
+* @return array
+**/
+public function getStrutture($id_sito="") {
+  ...
+}
 ```

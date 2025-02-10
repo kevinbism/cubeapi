@@ -5,22 +5,9 @@ description: API utili di Cube.
 
 # Utili da sapere
 
-## `getIdHome()`
+## Impostazione sito
 
-Restituisce l'`id_pagina` della home page.
-
-```php
-/**
-* @param string $id_struttura
-* @param string $id_lingua
-* @return string
-**/
-public function getIdHome($id_struttura="", $id_lingua="") {
-  ...
-}
-```
-
-## `getImpostazione()`
+- **`getImpostazione()`**
 
 Consente di recuperare il valore delle impostazioni relative al sito utilizzando il parametro `$impostazione`. È possibile specificare ulteriori criteri di ricerca per il sito e la struttura utilizzando i parametri `$id_sito` e `$id_struttura`.
 
@@ -36,7 +23,9 @@ public function getImpostazione($impostazione, $id_sito="", $id_struttura="") {
 }
 ```
 
-## `getImpostazioneTemplate()`
+## Impostazione template
+
+- **`getImpostazioneTemplate()`**
 
 Consente di recuperare il valore delle impostazioni relative al template mediante il parametro `$impostazione`.
 
@@ -50,43 +39,11 @@ public function getImpostazioneTemplate($impostazione) {
 }
 ```
 
-## `getLinkHome()`
+## Path
 
-Restituisce il link della home page del sito.
+- **`getPath()`**
 
-```php
-/**
-* @param string $id_lingua
-* @param string $id_struttura
-* @param string $id_sito
-* @param int $absolute
-* @return string
-**/
-public function getLinkHome($id_lingua="", $id_struttura="", $id_sito="", $absolute=0) {
-  ...
-}
-```
-
-## `getLinkHomeCS()`
-
-:::warning
-Chiedere riguardo il funzionamento.
-:::
-
-```php
-/**
-* @param string $id_sito
-* @param string $id_lingua
-* @return string
-**/
-public function getLinkHomeCS($id_sito, $id_lingua="") {
-  ...
-}
-```
-
-## `getPath()`
-
-Restituisce il percorso in base al parametro impostato.
+Restituisce un tipo di **percorso** in base al parametro impostato.
 
 ```php
 /**
@@ -100,48 +57,21 @@ public function getPath($opz="", $id_sito="", $forceCDN=0) {
 }
 ```
 
-<h3><code>$opz</code></h3>
+| Parametro | Tipo   | Default | Valori ammessi o breve descrizione                                                                                                                                                                               |
+| --------- | ------ | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| $opz      | string | `root`  | `'img'` `'menu'` `'absolute'` `'preview'` `'libraries'` `'video'` `'public'`                                                                                                                                     |
+| $id_sito  | string | `null`  | Se `$id_sito` non è impostato, viene utilizzato automaticamente l'ID della struttura attuale.                                                                                                                    |
+| $forceCDN | number | `0`     | Utilizza il percorso della CDN. Funziona solo per il parametro `img \| video` e se il sito non ha una CDN attiva, altrimenti di default userà questo percorso anche quando il parametro rimane impostato su `0`. |
 
-- Type: `String`
-- Default: `null`
-
-Valori ammessi:
-
-- `img`
-- `menu`
-- `preview`
-- `absolute`
-- `libraries`
-- `video`
-- `public`
-
-## `grouppiStrutture()`
-
-Restituisce un `array` delle strutture in base al parametro `$campo`. Il parametro `$campo` corrisponde all'`id_sito` del progetto.
-
-:::danger ATTENZIONE
-Se il parametro `$campo` non viene fornito la funzione non restituisce nulla.
-:::
-
-```php
-/**
-* @param string $campo
-* @return array|void
-**/
-public function grouppiStrutture($campo) {
-  ...
-}
-```
-
-## `get_client_ip()`
-
-Fornisce il client ip del sito.
-
-```php
-/**
-* @return string
-**/
-public function get_client_ip() {
-  ...
-}
+```php [Risultati in base al parametro $opz]
+$cube->getPath('img'); // -> /images/
+$cube->getPath('img', $cube->id_sito, 1); // -> https://cdn.blastness.biz/media/id_sito/
+$cube->getPath('menu'); // -> /
+$cube->getPath('absolute'); // -> http://dominiohotel.com/templates/nome_template
+$cube->getPath('preview'); // -> http://dominiohotel.com/
+$cube->getPath('libraries'); // -> https://cdn.blastness.biz/assets/libraries/
+$cube->getPath('video'); // -> /video/
+$cube->getPath('video', $cube->id_sito, 1); // -> https://cdn.blastness.biz/video/id_sito/
+$cube->getPath('public'); // -> /templates/nome_template/public
+$cube->getPath(); // -> /templates/nome_template
 ```

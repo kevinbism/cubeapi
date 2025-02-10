@@ -7,6 +7,23 @@ description: API per le pagine di Cube.
 
 Questa sezione descrive le funzioni disponibili per gestire le pagine su Cube. Include metodi per ottenere informazioni sui moduli, link delle pagine, modelli e variabili di pagina.
 
+## ID Home
+
+- **`getIdHome()`**
+
+Restituisce l'`id_pagina` della home page.
+
+```php
+/**
+* @param string $id_struttura
+* @param string $id_lingua
+* @return string
+**/
+public function getIdHome($id_struttura="", $id_lingua="") {
+  ...
+}
+```
+
 ## ID modulo
 
 - **`getIdModulo()`**
@@ -67,6 +84,25 @@ $infoPadre = [
   "url" => "https://cube.blastdemo.com/camere",
   "titolo" => "Camere"
 ]
+```
+
+## Link Home
+
+- **`getLinkHome()`**
+
+Restituisce l'URL della home page del sito.
+
+```php
+/**
+* @param string $id_lingua
+* @param string $id_struttura
+* @param string $id_sito
+* @param int $absolute
+* @return string
+**/
+public function getLinkHome($id_lingua="", $id_struttura="", $id_sito="", $absolute=0) {
+  ...
+}
 ```
 
 ## Link padre

@@ -49,6 +49,7 @@ export default defineConfig({
           { text: "Contenuti", link: "/guide/content-api" },
           { text: "Immagini", link: "/guide/images-api" },
           { text: "Lingue", link: "/guide/lang-api" },
+          { text: "Menu", link: "/guide/menu-api" },
           { text: "Pagina", link: "/guide/page-api" },
           { text: "Template", link: "/guide/template-api" },
           { text: "Utili", link: "/guide/utils-api" },

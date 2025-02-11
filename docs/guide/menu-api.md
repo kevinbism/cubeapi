@@ -45,3 +45,66 @@ public function getInfoMenu($id_menu, $campo="menu") {
   ...
 }
 ```
+
+## Menu <Badge type="warning" text="Da completare" />
+
+- **`getMenu()`**
+
+```php
+/**
+* @param int $id_menu
+* @param int $parent_id
+* @param string $opz
+* @param string $filtro
+* @param int $visibile
+* @return array
+**/
+public function getMenu($id_menu, $parent_id=0, $opz="", $filtro="", $visibile=1) {
+  ...
+}
+```
+
+## Menu secondario <Badge type="warning" text="Da completare" />
+
+- **`getMenuSecondario()`**
+
+```php
+/**
+* @param int $id_menu
+* @param int $opz
+* @param int $visibile
+* @return array
+**/
+public function getMenuSecondario($id_menu="", $opz=1, $visibile=1) {
+  ...
+}
+```
+
+## Menu secondario terzo livello <Badge type="warning" text="Da completare" />
+
+- **`getMenuSecondarioTerzoLivello()`**
+
+```php
+/**
+* @param int $id_menu
+* @param int $id_menu_voci
+* @return array
+**/
+public function getMenuSecondarioTerzoLivello($id_menu="", $id_menu_voci="") {
+  ...
+}
+```
+
+## Menu landing <Badge type="warning" text="Da completare" />
+
+- **`getMenuLanding()`**
+
+```php
+/**
+* @param int $id_struttura
+* @return array
+**/
+public function getMenuLanding($id_struttura) {
+  ...
+}
+```

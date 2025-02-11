@@ -46,6 +46,7 @@ export default defineConfig({
       {
         text: "Core Cube",
         items: [
+          { text: "BE", link: "/guide/be-api" },
           { text: "Contenuti", link: "/guide/content-api" },
           { text: "Immagini", link: "/guide/images-api" },
           { text: "Lingue", link: "/guide/lang-api" },

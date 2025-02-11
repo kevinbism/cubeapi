@@ -54,6 +54,20 @@ Esempio:
 $articoli = $cube->getModulo('Articoli', $cube->lingua_default());
 ```
 
+## Menu lingue <Badge type="warning" text="Da completare" />
+
+- **`getMenuLingue()`**
+
+```php
+/**
+* @param boolean $notForceUrl
+* @return array
+**/
+public function getMenuLingue($notForceUrl=false) {
+  ...
+}
+```
+
 ## Trova lingua
 
 - **`trova_lingua()`**

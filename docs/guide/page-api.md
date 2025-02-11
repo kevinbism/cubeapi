@@ -7,6 +7,23 @@ description: API per le pagine di Cube.
 
 Questa sezione descrive le funzioni disponibili per gestire le pagine su Cube. Include metodi per ottenere informazioni sui moduli, link delle pagine, modelli e variabili di pagina.
 
+## Breadcrumb <Badge type="warning" text="Da completare" />
+
+- **`getBreadCrumb()`**
+
+```php
+/**
+* @param string $classe
+* @param string $classe_li
+* @param boolean $aos
+* @param string $classe_a
+* @return array
+**/
+public function getBreadCrumb($classe="breadcrumb", $classe_li="", $aos=false, $classe_a="") {
+  ...
+}
+```
+
 ## ID Home
 
 - **`getIdHome()`**
@@ -86,6 +103,39 @@ $infoPadre = [
 ]
 ```
 
+## Info pagina <Badge type="warning" text="Da completare" />
+
+- **`getInfoPagina()`**
+
+Questa funzione restituisce informazione della pagina in base al parametro `$campo` e all'`$id_pagina` passato.
+
+```php
+/**
+* @param string $campo
+* @param string $id_pagina
+* @return string
+**/
+public function getInfoPagina($campo, $id_pagina="") {
+  ...
+}
+```
+
+## Info pagina meta <Badge type="warning" text="Da completare" />
+
+- **`getInfoPaginaMeta()`**
+
+```php
+/**
+* @param string $campo
+* @param int $id_lingua
+* @param int $id_pagina
+* @return string
+**/
+public function getInfoPaginaMeta($campo, $id_lingua, $id_pagina="") {
+  ...
+}
+```
+
 ## Link Home
 
 - **`getLinkHome()`**
@@ -116,6 +166,23 @@ Se la pagina corrente è una pagina figlia restituisce il link della pagina padr
 * @return string
 **/
 public function getLinkPadre() {
+  ...
+}
+```
+
+## Link pagina <Badge type="warning" text="Da completare" />
+
+- **`getLinkPagina()`**
+
+Restituisce il link in base all'`$id_pagina` passato.
+
+```php
+/**
+* @param int $id_pagina
+* @param string $id_lingua
+* @return string
+**/
+public function getLinkPagina($id_pagina="", $id_lingua="") {
   ...
 }
 ```
@@ -180,6 +247,22 @@ Restituisce l'`id_modello` richiesto.
 * @return mixed
 **/
 public function getModello($modello) {
+  ...
+}
+```
+
+## Modulo <Badge type="warning" text="Da completare" />
+
+- **`getModulo()`**
+
+```php
+/**
+* @param string $label_modulo
+* @param string $id_rel
+* @param int $id_lingua
+* @return array
+**/
+public function getModulo($label_modulo="", $id_rel="", $id_lingua="") {
   ...
 }
 ```
@@ -323,6 +406,38 @@ Restituisce l'url della pagina corrente.
 * @return string
 **/
 public function get_page_url() {
+  ...
+}
+```
+
+## Trova ancora <Badge type="warning" text="Da completare" />
+
+- **`trovaAncora()`**
+
+```php
+/**
+* @param string $nome ancora
+* @param int $id_lingua
+* @param int $id_struttura
+* @return string
+**/
+public function trovaAncora($nome_ancora, $id_lingua="", $id_struttura="") {
+  ...
+}
+```
+
+## Trova ancora ID pagina <Badge type="warning" text="Da completare" />
+
+- **`trovaAncoraIdPagina()`**
+
+```php
+/**
+* @param string $nome ancora
+* @param int $id_lingua
+* @param int $id_struttura
+* @return int
+**/
+public function trovaAncoraIdPagina($nome_ancora, $id_lingua="", $id_struttura="") {
   ...
 }
 ```

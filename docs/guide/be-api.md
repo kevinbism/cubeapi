@@ -1,6 +1,6 @@
 # Booking Engine API
 
-## Link Booking <Badge type="warning" text="Da completare" />
+## Link Booking
 
 - **`getLinkBooking()`**
 
@@ -16,6 +16,28 @@
 public function getLinkBooking($opz="", $id_struttura="", $id_prodotto_sel="", $id_struttura_offerta="", $configurazioni = []) {
   ...
 }
+```
+
+| Parametro             | Tipo   | Default               | Valori ammessi o breve descrizione                                                                                                                                 |
+| --------------------- | ------ | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| $opz                  | string | `null`                | `'singolo'` `'cancella_modifica'` `'benvenuto'` `'domani'`                                                                                                         |
+| $id_struttura         | string | `$this->id_struttura` | Se non impostato, il valore della struttura coincide con quello della struttura corrente. È possibile specificare una struttura diversa modificando questo valore. |
+| $id_prodotto_sel      | string | `null`                | Consente di generare il link del BE con una specifica offerta.                                                                                                     |
+| $id_struttura_offerta | string | `null`                | ...                                                                                                                                                                |
+
+<h3><code>$configurazioni</code></h3>
+
+- Tipo: `Array`
+- Default: `[]`
+
+Opzioni configurabili:
+
+```php
+[
+  'data' => '', // è possibile impostare la data specifica per il BE
+  'id_lingua' => $this->id_lingua,
+  'tipo_booking' => $this->tipo_booking,
+]
 ```
 
 ## Link offerte <Badge type="warning" text="Da completare" />

@@ -48,9 +48,11 @@ Opzioni configurabili:
 ]
 ```
 
-## Link offerte <Badge type="warning" text="Da completare" />
+## Link offerte
 
 - **`getLinkOfferte()`**
+
+Di base questa funzione utilizza `getLinkBooking()` per generare l'offerta desiderata. Valgono gli stesse descrizioni per i parametri che hanno in comune.
 
 ```php
 /**
@@ -62,4 +64,24 @@ Opzioni configurabili:
 public function getLinkOfferte($id_prodotto_sel, $id_struttura_offerta="", $configurazioni = []) {
   ...
 }
+```
+
+| Parametro             | Tipo   | Default | Valori ammessi o breve descrizione                             |
+| --------------------- | ------ | ------- | -------------------------------------------------------------- |
+| $id_prodotto_sel      | string | `null`  | Consente di generare il link del BE con una specifica offerta. |
+| $id_struttura_offerta | string | `null`  | ...                                                            |
+
+<h3><code>$configurazioni</code></h3>
+
+- Tipo: `Array`
+- Default: `[]`
+
+Opzioni configurabili:
+
+```php
+[
+  'data' => '', // è possibile impostare la data specifica per il BE
+  'id_lingua' => $this->id_lingua,
+  'tipo_booking' => $this->tipo_booking,
+]
 ```

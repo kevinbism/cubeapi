@@ -27,8 +27,8 @@ I contributi sono sempre ben accetti per migliorare la documentazione e il proge
 
 1. Fai un fork del repository
 2. Installa tutte le dipendenze (`npm install`)
-3. Inizializza il progetto e apporta le tue modifche (`npm run docs:dev`)
-4. Crea un branch per le tue modifiche (`git branch feature/nuova-feature`)
+3. Crea un branch per le tue modifiche (`git branch feature/nuova-feature`)
+4. Inizializza il progetto e apporta le tue modifche (`npm run docs:dev`)
 5. Committa le tue modifiche (`git commit -m 'Aggiungi una nuova feature'`)
 6. Pusha il branch (`git push origin feature/nuova-feature`)
 7. Apri una Pull Request

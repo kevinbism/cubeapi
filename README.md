@@ -26,10 +26,12 @@ Per iniziare a utilizzare Cube API, visita la nostra [documentazione online](htt
 I contributi sono sempre ben accetti per migliorare la documentazione e il progetto. Se desideri contribuire:
 
 1. Fai un fork del repository
-2. Crea un branch per le tue modifiche (`git branch feature/nuova-feature`)
-3. Committa le tue modifiche (`git commit -m 'Aggiungi una nuova feature'`)
-4. Pusha il branch (`git push origin feature/nuova-feature`)
-5. Apri una Pull Request
+2. Installa tutte le dipendenze (`npm install`)
+3. Inizializza il progetto e apporta le tue modifche (`npm run docs:dev`)
+4. Crea un branch per le tue modifiche (`git branch feature/nuova-feature`)
+5. Committa le tue modifiche (`git commit -m 'Aggiungi una nuova feature'`)
+6. Pusha il branch (`git push origin feature/nuova-feature`)
+7. Apri una Pull Request
 
 ### Linee Guida per i Contributi
 

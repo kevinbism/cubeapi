@@ -4,6 +4,14 @@
 
 - **`getLinkBooking()`**
 
+Questa funzione genera l'URL del Booking Engine per una specifica struttura. Se non viene specificato l'`$id_struttura`, verrà utilizzata automaticamente la struttura corrente.
+Tramite il parametro `$opz` è possibile personalizzare il comportamento:
+
+- `'cancella_modifica'`: genera un link per cancellare o modificare una prenotazione esistente
+- `'benvenuto'`: indirizza alla pagina di benvenuto del Booking Engine
+
+La funzione supporta anche la pre-selezione di prodotti/offerte e configurazioni personalizzate come data di arrivo e lingua dell'interfaccia.
+
 ```php
 /**
 * @param string $opz

@@ -5,7 +5,7 @@ description: API per i contenuti di Cube.
 
 # API Contenuti
 
-Esplora le funzioni essenziali di Cube con questa pratica guida! Scopri le varie opzioni disponibili per ogni parametro e semplifica il tuo utilizzo del sistema.
+Esplora le funzioni essenziali di Cube con questa pratica guida! Scopri le varie opzioni disponibili per ogni parametro e semplifica il tuo codice.
 
 :::info DISCLAIMER
 Questa guida utilizza `$cube` al posto di `$this` come nome dell'istanza. _È puramente estetico_. Potete continuare a usare `$this` per chiamare i metodi e le funzioni all'interno di Cube.
@@ -38,7 +38,7 @@ Esempio:
 
 - **`getTesto()`**
 
-Restituisce il testo associato pagina.
+Restituisce il testo principale associato pagina.
 
 ```php
 /**
@@ -61,7 +61,7 @@ Esempio:
 
 - **`getTitolo()`**
 
-Restituisce il titolo della pagina.
+Restituisce il titolo principale della pagina.
 
 ```php
 /**
@@ -107,7 +107,7 @@ Esempio:
 
 - **`getSottotitolo()`**
 
-Restituisce il sottotitolo della pagina.
+Restituisce il sottotitolo principale della pagina.
 
 ```php
 /**

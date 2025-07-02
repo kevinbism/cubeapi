@@ -14,10 +14,10 @@ hero:
       link: /guide/content-api
 
 features:
-  - icon: 💻
+  - icon: 🧩
     title: Code Snippets
-    details: Ottieni rapidamente un elenco completo dei componenti pronti all'uso per dare vita ai tuoi progetti. Copia velocemente e senza sforzo i componenti che desideri integrare.
-  - icon: 📖
+    details: Ottieni rapidamente un elenco completo dei componenti pronti all'uso. Copia velocemente e senza sforzo i componenti che desideri integrare.
+  - icon: 🛠️
     title: Funzioni dettagliate
     details: Esplora le funzioni con uno sguardo più approfondito! Scopri le potenzialità avanzate di Cube e apri la porta a un nuovo livello di esperienza.
   - icon: 🔎

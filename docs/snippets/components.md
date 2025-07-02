@@ -3,7 +3,7 @@ title: Snippets Componenti
 description: Snippets di codice utile da poter riutilizzare.
 ---
 
-# Snippets Componenti
+# Componenti PHP
 
 Di seguito ci sono diversi esempi di componenti che è possibile utilizzare all'interno dei propri progetti.
 

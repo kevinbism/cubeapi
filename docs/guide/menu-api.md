@@ -102,9 +102,11 @@ $sottomenu = $cube->getMenu('Menu Top', 12345);
 $menu_filtrato = $cube->getMenu($id_menu, 0, "", "tipo = 0", 1);
 ```
 
-## Menu secondario <Badge type="warning" text="Da completare" />
+## Menu secondario
 
 - **`getMenuSecondario()`**
+
+Restituisce il menu secondario relativo alla pagina corrente. La funzione identifica automaticamente le voci di menu figlie della voce attiva e le restituisce come menu di secondo livello. Utile per creare menu di navigazione contestuali o sidebar di sezione.
 
 ```php
 /**
@@ -116,6 +118,31 @@ $menu_filtrato = $cube->getMenu($id_menu, 0, "", "tipo = 0", 1);
 public function getMenuSecondario($id_menu="", $opz=1, $visibile=1) {
   ...
 }
+```
+
+| Parametro | Tipo          | Default    | Valori ammessi o breve descrizione                                      |
+| --------- | ------------- | ---------- | ----------------------------------------------------------------------- |
+| $id_menu  | int \| string | `menu_top` | ID o nome del menu da utilizzare. Se vuoto usa il menu principale.      |
+| $opz      | int           | `1`        | `1` per menu figli della voce corrente, altro valore per voce corrente. |
+| $visibile | int           | `1`        | Se `1` mostra solo voci visibili, se `0` mostra tutte le voci.          |
+
+La funzione analizza la posizione corrente nella navigazione e:
+
+- se la voce corrente ha figli, restituisce i menu figli
+- se la voce corrente non ha figli ma si trova in un sotto-livello, restituisce i menu della stessa sezione
+- restituisce `null` se non ci sono menu secondari disponibili
+
+Esempio:
+
+```php
+// Recupera il menu secondario della sezione corrente
+$menu_secondario = $cube->getMenuSecondario();
+
+// Recupera il menu secondario da un menu specifico
+$menu_sidebar = $cube->getMenuSecondario('Menu Sidebar');
+
+// Recupera tutte le voci (anche non visibili) con opzione personalizzata
+$menu_completo = $cube->getMenuSecondario($id_menu, 2, 0);
 ```
 
 ## Menu secondario terzo livello <Badge type="warning" text="Da completare" />

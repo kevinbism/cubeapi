@@ -19,14 +19,14 @@ Il progetto si propone di:
 
 ## 🚀 Come Iniziare
 
-Per iniziare a utilizzare Cube API, visita la nostra [documentazione online](https://cube.blastness.info/admin/index.php?) e segui la guida introduttiva.
+Per iniziare a utilizzare Cube API, visita la nostra [documentazione online](https://linkdaaggiornare.com) e segui la guida introduttiva.
 
 ## 👥 Contributi
 
-Siamo sempre aperti a contributi per migliorare la documentazione e il progetto. Se desideri contribuire:
+I contributi sono sempre ben accetti per migliorare la documentazione e il progetto. Se desideri contribuire:
 
 1. Fai un fork del repository
-2. Crea un branch per le tue modifiche (`git checkout -b feature/nuova-feature`)
+2. Crea un branch per le tue modifiche (`git branch feature/nuova-feature`)
 3. Committa le tue modifiche (`git commit -m 'Aggiungi una nuova feature'`)
 4. Pusha il branch (`git push origin feature/nuova-feature`)
 5. Apri una Pull Request

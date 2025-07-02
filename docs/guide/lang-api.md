@@ -54,9 +54,11 @@ Esempio:
 $articoli = $cube->getModulo('Articoli', $cube->lingua_default());
 ```
 
-## Menu lingue <Badge type="warning" text="Da completare" />
+## Menu lingue
 
 - **`getMenuLingue()`**
+
+Restituisce un array contenente tutte le lingue disponibili per il sito, utilizzato tipicamente per generare un menu di selezione lingue. Il parametro `$notForceUrl` permette di controllare se forzare o meno la generazione degli URL per ogni lingua.
 
 ```php
 /**
@@ -66,6 +68,47 @@ $articoli = $cube->getModulo('Articoli', $cube->lingua_default());
 public function getMenuLingue($notForceUrl=false) {
   ...
 }
+```
+
+| Parametro    | Tipo    | Default | Valori ammessi o breve descrizione                             |
+| ------------ | ------- | ------- | -------------------------------------------------------------- |
+| $notForceUrl | boolean | `false` | Se `true`, non forza la generazione degli URL per ogni lingua. |
+
+Esempio:
+
+```php
+// Recupera tutte le lingue disponibili per creare un menu
+$lingue_menu = $cube->getMenuLingue();
+
+// Genera il menu delle lingue
+foreach($lingue_menu as $lingua) {
+    echo '<a href="'.$lingua['link'].'">'.$lingua['sigla'].'</a>';
+}
+
+// Di seguito un esempio dell'array che trovate su $lingue_menu
+Array (
+  [0] => Array (
+    [id_lingua] => 2
+    [link] => /
+    [lingua] => Italiano
+    [sigla] => ita
+    [sigla_2_caratteri] => it
+    [locale] => it_IT
+    [ordine] => 1
+    [current] => 1
+  )
+
+  [1] => Array (
+    [id_lingua] => 3
+    [link] => /en/index
+    [lingua] => English
+    [sigla] => eng
+    [sigla_2_caratteri] => en
+    [locale] => en_US
+    [ordine] => 2
+    [current] =>
+  )
+)
 ```
 
 ## Trova lingua

@@ -222,11 +222,11 @@ public function getLinkPadre() {
 }
 ```
 
-## Link pagina <Badge type="warning" text="Da completare" />
+## Link pagina
 
 - **`getLinkPagina()`**
 
-Restituisce il link in base all'`$id_pagina` passato.
+Restituisce l'URL completo di una pagina specifica basandosi sull'`id_pagina` fornito. La funzione cerca l'URL della pagina nel database e gestisce automaticamente i casi di pagine multilingue e multidomain. Se la lingua richiesta non è disponibile per quella pagina, utilizza automaticamente la lingua di default del sito.
 
 ```php
 /**
@@ -237,6 +237,38 @@ Restituisce il link in base all'`$id_pagina` passato.
 public function getLinkPagina($id_pagina="", $id_lingua="") {
   ...
 }
+```
+
+| Parametro  | Tipo   | Default            | Valori ammessi o breve descrizione                                            |
+| ---------- | ------ | ------------------ | ----------------------------------------------------------------------------- |
+| $id_pagina | string | `$this->id_pagina` | ID della pagina di cui si vuole ottenere l'URL. Se vuoto usa quella corrente. |
+| $id_lingua | string | `$this->id_lingua` | ID della lingua desiderata. Se vuoto utilizza l'ID della lingua corrente.     |
+
+Funzionalità principali:
+
+- **Gestione multilingue:** Se la lingua richiesta non è disponibile per la pagina, fallback automatico alla lingua di default
+- **Supporto multidomain:** Nei progetti multidomain, restituisce l'URL completo con dominio se la pagina appartiene a una struttura diversa
+- **Gestione pagine index:** Le pagine con URL "index" vengono automaticamente convertite in URL root
+- **Percorsi relativi:** Aggiunge automaticamente il percorso base del menu
+
+Esempio:
+
+```php
+// URL della pagina corrente
+$linkPagina = $cube->getLinkPagina();
+// return -> "/camere/suite"
+
+// URL di una pagina specifica
+$linkPaginaSpecifica = $cube->getLinkPagina(12345);
+// return -> "/offerte/estate-2024"
+
+// URL di una pagina in lingua specifica
+$linkPaginaEn = $cube->getLinkPagina(12345, "2");
+// return -> "/en/offers/summer-2024"
+
+// In progetti multidomain - pagina di altra struttura
+$linkPaginaAltroSito = $cube->getLinkPagina(67890);
+// return -> "https://altrosito.com/servizi"
 ```
 
 ## Link pagina gallery

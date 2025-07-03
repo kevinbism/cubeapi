@@ -23,6 +23,12 @@ public function getImpostazione($impostazione, $id_sito="", $id_struttura="") {
 }
 ```
 
+| Parametro     | Tipo   | Default               | Valori ammessi o breve descrizione                                                            |
+| ------------- | ------ | --------------------- | --------------------------------------------------------------------------------------------- |
+| $impostazione | string | `null`                | `'id_modello_default'` `'id_menu_top_default'` `'id_menu_bottom_default'`                     |
+| $id_sito      | string | `null`                | Se `$id_sito` non è impostato, viene utilizzato automaticamente l'ID della struttura attuale. |
+| $id_struttura | int    | `$this->id_struttura` | ID della struttura. Se vuoto utilizza l'ID della struttura corrente.                          |
+
 ## Impostazione template
 
 - **`getImpostazioneTemplate()`**

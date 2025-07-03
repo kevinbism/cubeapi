@@ -335,9 +335,11 @@ public function getModello($modello) {
 }
 ```
 
-## Modulo <Badge type="warning" text="Da completare" />
+## Modulo
 
 - **`getModulo()`**
+
+Restituisce il contenuto di un modulo specifico basandosi sul nome del modulo (`$label_modulo`) e sulla pagina o elemento di riferimento. La funzione recupera automaticamente il modello della pagina corrente o del componente attivo e restituisce i dati del modulo richiesto. Se utilizzata all'interno di un componente, la funzione si adatta automaticamente al contesto del componente stesso.
 
 ```php
 /**
@@ -349,6 +351,32 @@ public function getModello($modello) {
 public function getModulo($label_modulo="", $id_rel="", $id_lingua="") {
   ...
 }
+```
+
+| Parametro     | Tipo   | Default            | Valori ammessi o breve descrizione                                               |
+| ------------- | ------ | ------------------ | -------------------------------------------------------------------------------- |
+| $label_modulo | string | `""`               | Nome del modulo da recuperare (es. "Slider principale", "Testi homepage", ecc.)  |
+| $id_rel       | string | `""`               | ID della pagina o elemento di riferimento. Se vuoto utilizza la pagina corrente. |
+| $id_lingua    | string | `$this->id_lingua` | ID della lingua desiderata. Se vuoto utilizza l'ID della lingua corrente.        |
+
+Funzionalità principali:
+
+- **Rilevamento automatico del contesto:** La funzione rileva se viene eseguita all'interno di un componente o di una pagina normale
+- **Gestione multilingue:** Supporta il recupero di contenuti in lingue diverse
+- **Flessibilità di riferimento:** Permette di recuperare moduli da pagine diverse da quella corrente
+- **Integrazione con componenti:** Si adatta automaticamente quando utilizzata all'interno di componenti Cube
+
+Esempio:
+
+```php
+// Recupera un modulo dalla pagina corrente
+$sliderPrincipale = $cube->getModulo("Slider principale");
+
+// Recupera un modulo da una pagina specifica
+$testiSpecifici = $cube->getModulo("Testi homepage", "12345");
+
+// Recupera un modulo in una lingua specifica
+$moduloEn = $cube->getModulo("Elenco servizi", "", "2");
 ```
 
 ## Pagine modello

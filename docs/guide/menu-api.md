@@ -145,9 +145,11 @@ $menu_sidebar = $cube->getMenuSecondario('Menu Sidebar');
 $menu_completo = $cube->getMenuSecondario($id_menu, 2, 0);
 ```
 
-## Menu secondario terzo livello <Badge type="warning" text="Da completare" />
+## Menu secondario terzo livello
 
 - **`getMenuSecondarioTerzoLivello()`**
+
+Restituisce il menu di terzo livello relativo a una specifica voce di menu. La funzione recupera le voci figlie di una voce di menu specifica, permettendo di creare menu di navigazione con maggiore profondità. Utile per gestire strutture di menu complesse con più livelli gerarchici.
 
 ```php
 /**
@@ -158,6 +160,28 @@ $menu_completo = $cube->getMenuSecondario($id_menu, 2, 0);
 public function getMenuSecondarioTerzoLivello($id_menu="", $id_menu_voci="") {
   ...
 }
+```
+
+| Parametro     | Tipo          | Default        | Valori ammessi o breve descrizione                                              |
+| ------------- | ------------- | -------------- | ------------------------------------------------------------------------------- |
+| $id_menu      | int \| string | `menu_top`     | ID o nome del menu da utilizzare. Se vuoto usa il menu principale.              |
+| $id_menu_voci | int           | `id_menu_voci` | ID della voce di menu per cui recuperare i figli. Se vuoto usa quella corrente. |
+
+La funzione analizza la struttura del menu e:
+
+- se la voce specificata ha figli, restituisce i menu figli di terzo livello
+- se la voce specificata non ha figli ma si trova in un sotto-livello, restituisce i menu della stessa sezione
+- restituisce `null` se non ci sono menu di terzo livello disponibili
+
+```php
+// Recupera il menu di terzo livello della voce corrente
+$menu_terzo_livello = $cube->getMenuSecondarioTerzoLivello();
+
+// Recupera il menu di terzo livello di una voce specifica
+$menu_specifico = $cube->getMenuSecondarioTerzoLivello('Menu Top', 12345);
+
+// Recupera il menu di terzo livello da un menu personalizzato
+$menu_custom = $cube->getMenuSecondarioTerzoLivello('Menu Sidebar', $id_voce);
 ```
 
 ## Menu landing <Badge type="warning" text="Da completare" />

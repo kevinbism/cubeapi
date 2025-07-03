@@ -573,9 +573,11 @@ $linkContattiStruttura = $cube->trovaAncora("contatti", "", "3");
 La funzione restituisce solo il primo risultato trovato. Assicurati che il nome dell'ancora sia univoco all'interno della struttura e lingua specificata.
 :::
 
-## Trova ancora ID pagina <Badge type="warning" text="Da completare" />
+## Trova ancora ID pagina
 
 - **`trovaAncoraIdPagina()`**
+
+Restituisce l'`id_pagina` della pagina che contiene l'ancora specificata. La funzione cerca nel database una pagina che ha un'ancora con il nome fornito e restituisce il suo identificativo univoco. Questa funzione è utile quando è necessario ottenere l'ID di una pagina specifica basandosi sul nome dell'ancora per poi utilizzarlo in altre operazioni o per generare link dinamici.
 
 ```php
 /**
@@ -587,6 +589,35 @@ La funzione restituisce solo il primo risultato trovato. Assicurati che il nome 
 public function trovaAncoraIdPagina($nome_ancora, $id_lingua="", $id_struttura="") {
   ...
 }
+```
+
+| Parametro     | Tipo   | Default               | Valori ammessi o breve descrizione                                                         |
+| ------------- | ------ | --------------------- | ------------------------------------------------------------------------------------------ |
+| $nome_ancora  | string | `null`                | Nome dell'ancora da cercare. Deve corrispondere al valore del campo `ancora` della pagina. |
+| $id_lingua    | int    | `$this->id_lingua`    | ID della lingua desiderata. Se vuoto utilizza l'ID della lingua corrente.                  |
+| $id_struttura | int    | `$this->id_struttura` | ID della struttura. Se vuoto utilizza l'ID della struttura corrente.                       |
+
+Ha le stesse funzionalità della funzione [`trovaAncora()`](#trova-ancora).
+
+Esempio:
+
+```php
+// Cerca l'ID della pagina con ancora "contatti"
+$idPaginaContatti = $cube->trovaAncoraIdPagina("contatti");
+// return -> 12345
+
+// Cerca l'ancora in una lingua specifica
+$idPaginaContattiEn = $cube->trovaAncoraIdPagina("contact", "2");
+// return -> 12346
+
+// Cerca l'ancora in una struttura specifica
+$idPaginaContattiStruttura = $cube->trovaAncoraIdPagina("contatti", "", "5");
+// return -> 12347
+
+// Utilizzare l'ID per altre operazioni
+$idPagina = $cube->trovaAncoraIdPagina("servizi");
+$linkPagina = $cube->getLinkPagina($idPagina);
+// return -> "/servizi"
 ```
 
 ## Landing testo

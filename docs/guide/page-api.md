@@ -522,9 +522,11 @@ public function get_page_url() {
 }
 ```
 
-## Trova ancora <Badge type="warning" text="Da completare" />
+## Trova ancora
 
 - **`trovaAncora()`**
+
+Cerca e restituisce l'URL completo di una pagina specifica identificata tramite il nome dell'ancora. La funzione effettua una ricerca nel database per trovare la pagina che ha come valore del campo ancora il nome specificato, restituendo l'URL completo della pagina trovata. Questa funzione è utile per creare collegamenti dinamici verso pagine specifiche utilizzando identificatori personalizzati.
 
 ```php
 /**
@@ -537,6 +539,39 @@ public function trovaAncora($nome_ancora, $id_lingua="", $id_struttura="") {
   ...
 }
 ```
+
+| Parametro     | Tipo   | Default               | Valori ammessi o breve descrizione                                                         |
+| ------------- | ------ | --------------------- | ------------------------------------------------------------------------------------------ |
+| $nome_ancora  | string | `null`                | Nome dell'ancora da cercare. Deve corrispondere al valore del campo `ancora` della pagina. |
+| $id_lingua    | int    | `$this->id_lingua`    | ID della lingua desiderata. Se vuoto utilizza l'ID della lingua corrente.                  |
+| $id_struttura | int    | `$this->id_struttura` | ID della struttura. Se vuoto utilizza l'ID della struttura corrente.                       |
+
+Funzionalità principali:
+
+- **Ricerca per ancora:** Trova la pagina che ha il campo ancora uguale al valore specificato
+- **Supporto multilingue:** Cerca la pagina nella lingua specificata
+- **Supporto multistruttura:** Limita la ricerca alla struttura specificata
+- **URL completo:** Restituisce l'URL completo includendo il percorso base del menu
+
+Esempio:
+
+```php
+// Trova l'URL della pagina con ancora "contatti"
+$linkContatti = $cube->trovaAncora("contatti");
+// return -> "/contatti"
+
+// Trova l'URL di una pagina in lingua specifica
+$linkContattiEn = $cube->trovaAncora("contacts", "2");
+// return -> "/en/contacts"
+
+// Trova l'URL di una pagina in struttura specifica
+$linkContattiStruttura = $cube->trovaAncora("contatti", "", "3");
+// return -> "/struttura-specifica/contatti"
+```
+
+:::warning ATTENZIONE
+La funzione restituisce solo il primo risultato trovato. Assicurati che il nome dell'ancora sia univoco all'interno della struttura e lingua specificata.
+:::
 
 ## Trova ancora ID pagina <Badge type="warning" text="Da completare" />
 

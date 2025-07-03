@@ -178,11 +178,11 @@ $numeroStrutture = $cube->numero_strutture($cube->info_sito('id_sito'));
 $numeroStrutture = $cube->numero_strutture($cube->id_sito);
 ```
 
-## Strutture <Badge type="warning" text="Da completare" />
+## Strutture
 
 - **`getStrutture()`**
 
-Consente di ricevere l'elenco delle strutture di un determinato sito.
+Restituisce un array completo contenente tutte le strutture associate a un determinato sito. La funzione recupera tutti i dati disponibili per ogni struttura, incluse le informazioni di base come nome, indirizzo, contatti e configurazioni specifiche. È utile per creare menu di navigazione tra strutture, mostrare elenchi di hotel in un gruppo, o per operazioni che richiedono l'accesso a tutte le strutture del sito.
 
 ```php
 /**
@@ -192,4 +192,47 @@ Consente di ricevere l'elenco delle strutture di un determinato sito.
 public function getStrutture($id_sito="") {
   ...
 }
+```
+
+| Parametro | Tipo   | Default          | Valori ammessi o breve descrizione                                                    |
+| --------- | ------ | ---------------- | ------------------------------------------------------------------------------------- |
+| $id_sito  | string | `$this->id_sito` | ID del sito di cui recuperare le strutture. Se vuoto utilizza l'ID del sito corrente. |
+
+Funzionalità principali:
+
+- **Recupero completo:** Restituisce tutti i campi e le informazioni disponibili per ogni struttura
+- **Dati strutturati:** Ogni struttura è rappresentata come array associativo con tutti i suoi attributi
+- **Fallback automatico:** Se non viene specificato l'ID del sito, utilizza automaticamente quello corrente
+- **Compatibilità gruppi:** Funziona sia per siti singoli che per gruppi di strutture
+
+L'array restituito contiene tutte le informazioni delle strutture, inclusi ma non limitati a:
+
+- Informazioni di base (nome, indirizzo, telefono, email)
+- Configurazioni booking e integrazioni
+- Dati social media e marketing
+- Impostazioni tecniche e personalizzazioni
+
+Esempio:
+
+```php
+// Recupera tutte le strutture del sito corrente
+$strutture = $cube->getStrutture();
+
+// Recupera strutture di un sito specifico
+$struttureGruppo = $cube->getStrutture("123");
+
+// Esempio di utilizzo per creare un menu di strutture
+foreach ($strutture as $struttura) {
+    echo '<a href="' . $cube->link_to($struttura['id_struttura']) . '">';
+    echo $struttura['nome_struttura'];
+    echo '</a>';
+}
+
+// Contare le strutture disponibili
+$numeroStrutture = count($cube->getStrutture());
+
+// Filtrare strutture attive
+$struttureAttive = array_filter($cube->getStrutture(), function($struttura) {
+    return $struttura['attivo'] == 1;
+});
 ```

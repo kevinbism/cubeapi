@@ -184,16 +184,56 @@ $menu_specifico = $cube->getMenuSecondarioTerzoLivello('Menu Top', 12345);
 $menu_custom = $cube->getMenuSecondarioTerzoLivello('Menu Sidebar', $id_voce);
 ```
 
-## Menu landing <Badge type="warning" text="Da completare" />
+## Menu landing
 
 - **`getMenuLanding()`**
+
+Restituisce le pagine di tipo "landing" associate a una struttura specifica. La funzione ha comportamenti diversi a seconda del modello della pagina corrente: per la Home Page recupera le landing page impostate come home, mentre per le altre pagine recupera tutte le landing page della stessa categoria o struttura, escludendo la pagina corrente.
 
 ```php
 /**
 * @param int $id_struttura
 * @return array
 **/
-public function getMenuLanding($id_struttura) {
+public function getMenuLanding($id_struttura = "") {
   ...
+}
+```
+
+| Parametro     | Tipo   | Default               | Valori ammessi o breve descrizione                                   |
+| ------------- | ------ | --------------------- | -------------------------------------------------------------------- |
+| $id_struttura | string | `$this->id_struttura` | ID della struttura. Se vuoto utilizza l'ID della struttura corrente. |
+
+Il comportamento della funzione varia in base al modello della pagina.
+
+**Per modelli "Home Page" o "Home Page Strutture":**
+
+- Recupera solo le landing page con `home=1`
+- Filtra per struttura e stato "pubblica"
+- Ordina per ID pagina
+
+**Per altri modelli:**
+
+- Recupera tutte le landing page della struttura
+- Esclude la pagina corrente dal risultato
+- Filtra per categoria (se presente) o per pagine senza categoria
+- Considera solo pagine con stato "pubblica"
+
+Ogni voce restituita contiene:
+
+- `id_pagina`: ID della pagina landing
+- `testo_link`: Titolo della pagina da utilizzare come testo del link
+- `link`: URL completo della pagina generato tramite `getLinkPagina()`
+
+```php
+// Recupera le landing page della struttura corrente
+$landing_pages = $cube->getMenuLanding();
+
+// Recupera le landing page di una struttura specifica
+$landing_struttura = $cube->getMenuLanding('12345');
+
+// Esempio di utilizzo per creare un menu di landing page
+foreach($landing_pages as $landing) {
+    echo '<a href="' . $landing['link'] . '">' . $landing['testo_link'] . '</a>';
 }
 ```

@@ -11,12 +11,12 @@ Di seguito ci sono diversi esempi di componenti che è possibile utilizzare all'
 
 ```php [Image.php]
 <?php
-global $cms;
-$classList = explode(' ', $class);
+global $cube;
+$classList = explode(' ', $class ?? 'image');
 ?>
 
-<figure class="<?= implode(' ', $classList) ?>" <?= $attr ?>>
-  <?= $cms->getPicture($img['files'],
+<figure class="<?= implode(' ', $classList) ?>" <?= $attr ?? '' ?>>
+  <?= $cube->getPicture($img['files'],
     [
       'priority' => false,
       'class' => 'lazy',
@@ -24,9 +24,9 @@ $classList = explode(' ', $class);
       'classImg' => $classList[0].'__img',
       'title' => $img['title'],
       'data' => isset($data[0]) ? [$data[0] => $data[1]] : null,
+      'type' => $type ?: 'medium',
       'mediaQuery' => [
         '(max-width:769px)' => 'thumbnail_mobile',
-        '(max-width:1024px)' => 'medium',
       ]
     ])
   ?>
@@ -36,10 +36,11 @@ $classList = explode(' ', $class);
 Esempio integrazione:
 
 ```php
-foreach ($cms->getModulo('immagini') as $img) {
-  $cms->cube_parts('component_folder.Image', [
+foreach ($cube->getModulo('immagini') as $img) {
+  $cube->cube_parts('component_folder.Image', [
     'img' => $img,
-    'class' => 'image-class'
+    'class' => 'image-class',
+    'type' => 'full'
   ]);
 }
 ```
@@ -47,7 +48,11 @@ foreach ($cms->getModulo('immagini') as $img) {
 ## Link
 
 ```php [Link.php]
-<a href="<?= $link['link'] ?>" target="<?= $link['target'] ?>" class="<?= $class ?>">
+<?php
+$class = $class ?? "";
+$attr = $attr ?? "";
+?>
+<a href="<?= $link['link'] ?>" target="<?= $link['target'] ?>" class="<?= $class ?>" <?= $attr ?>>
   <?= $link['label'] ?>
 </a>
 ```
@@ -55,10 +60,54 @@ foreach ($cms->getModulo('immagini') as $img) {
 Esempio integrazione:
 
 ```php
-foreach ($cms->getModulo('link') as $link) {
-  $cms->cube_parts('component_folder.Link', [
+foreach ($cube->getModulo('link') as $link) {
+  $cube->cube_parts('component_folder.Link', [
     'link' => $link,
-    'class' => 'link-class'
+    'class' => 'link-class',
+    'attr' => 'data-caos="fade-up"'
   ]);
 }
+```
+
+## Logo
+
+```php
+<?php
+global $cms;
+$classList = explode(' ', $class ?? '');
+$fileLogo = $fileLogo ?? 'logo';
+$w = $w ?? '';
+$h = $h ?? '';
+$p = $p ?? false;
+$lazy = $lazy ?? false;
+$id = $cms->isGruppo() ? $id : $cms->id_struttura;
+?>
+
+<a href="<?= $cms->getLinkHome('', $id) ?>" class="<?= implode(' ', $classList) ?>">
+  <?= $cms->getLogoP([
+    'file' => $fileLogo,
+    'id_struttura' => $id,
+    'priority' => $p,
+    'class' => !$p ? 'lazy' : '',
+    'lazy' => $lazy,
+    'classImg' => $classList[0] . '__img',
+    'title' => $cms->getInfoStruttura('nome_struttura', $id) . ' Logo',
+    'width' => $w,
+    'height' => $h
+  ]);
+  ?>
+</a>
+```
+
+Esempio integrazione:
+
+```php
+$cube->cube_parts('component_folder.Logo', [
+  'fileLogo' => 'altlogo',
+  'class' => 'header-logo header-logo--alt',
+  'p' => true,
+  'lazy' => true,
+  'w' => 171,
+  'h' => 55
+])
 ```

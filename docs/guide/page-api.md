@@ -7,9 +7,11 @@ description: API per le pagine di Cube.
 
 Questa sezione descrive le funzioni disponibili per gestire le pagine su Cube. Include metodi per ottenere informazioni sui moduli, link delle pagine, modelli e variabili di pagina.
 
-## Breadcrumb <Badge type="warning" text="Da completare" />
+## Breadcrumb
 
 - **`getBreadCrumb()`**
+
+Genera e restituisce il breadcrumb (percorso di navigazione) della pagina corrente sotto forma di lista HTML non ordinata. La funzione ricostruisce il percorso completo dalla pagina corrente fino alla home page, basandosi sulla struttura del menu di navigazione. Il breadcrumb viene visualizzato solo se il percorso ha più di un livello di profondità.
 
 ```php
 /**
@@ -22,6 +24,44 @@ Questa sezione descrive le funzioni disponibili per gestire le pagine su Cube. I
 public function getBreadCrumb($classe="breadcrumb", $classe_li="", $aos=false, $classe_a="") {
   ...
 }
+```
+
+| Parametro  | Tipo    | Default      | Valori ammessi o breve descrizione                                   |
+| ---------- | ------- | ------------ | -------------------------------------------------------------------- |
+| $classe    | string  | `breadcrumb` | Classe CSS da applicare all'elemento `<ul>` contenitore.             |
+| $classe_li | string  | `""`         | Classe CSS da applicare agli elementi `<li>` del breadcrumb.         |
+| $aos       | boolean | `false`      | Se `true` aggiunge attributi AOS (Animate On Scroll) al contenitore. |
+| $classe_a  | string  | `""`         | Classe CSS da applicare agli elementi `<a>` (link) del breadcrumb.   |
+
+La funzione analizza la struttura del menu per ricostruire il percorso:
+
+- Recupera tutti i livelli padre della pagina corrente
+- Inverte l'ordine per mostrare il percorso dalla home alla pagina corrente
+- Genera automaticamente i link per ogni livello del percorso
+- Gestisce diversi tipi di voci di menu (pagine, link esterni, pagine con testo personalizzato)
+- Supporta hook personalizzati per modificare il comportamento
+
+La funzione restituisce HTML nel seguente formato:
+
+```html
+<ul class="breadcrumb" data-aos="fade-up" data-aos-duration="1500">
+  <li><a href="/home">Home</a></li>
+  <li><a href="/camere">Camere</a></li>
+  <li><a href="/suite">Suite</a></li>
+</ul>
+```
+
+Esempio:
+
+```php
+// Breadcrumb base con classi predefinite
+echo $cube->getBreadCrumb();
+
+// Breadcrumb con classi personalizzate
+echo $cube->getBreadCrumb('my-breadcrumb', 'breadcrumb-item', false, 'breadcrumb-link');
+
+// Breadcrumb con animazione AOS
+echo $cube->getBreadCrumb('breadcrumb', 'nav-item', true, 'nav-link');
 ```
 
 ## ID Home

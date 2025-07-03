@@ -85,7 +85,7 @@ public function getIdHome($id_struttura="", $id_lingua="") {
 
 - **`getIdModulo()`**
 
-Tramite il parametro `$modulo`, che in questo caso corrisponde al nome di un modulo su Cube, è possibile richiedere l'`id_modulo`.
+Tramite il parametro `$modulo`, che in questo caso corrisponde al nome di un modulo su Cube, è possibile accedere all'`id_modulo`.
 
 ```php
 /**
@@ -143,7 +143,7 @@ $infoPadre = [
 ]
 ```
 
-## Info pagina <Badge type="warning" text="Da completare" />
+## Info pagina
 
 - **`getInfoPagina()`**
 
@@ -160,27 +160,16 @@ public function getInfoPagina($campo, $id_pagina="") {
 }
 ```
 
-## Info pagina meta <Badge type="warning" text="Da completare" />
-
-- **`getInfoPaginaMeta()`**
-
-```php
-/**
-* @param string $campo
-* @param int $id_lingua
-* @param int $id_pagina
-* @return string
-**/
-public function getInfoPaginaMeta($campo, $id_lingua, $id_pagina="") {
-  ...
-}
-```
+| Parametro  | Tipo   | Default            | Valori ammessi o breve descrizione                                                                                                                                                                                                                                                                                                                          |
+| ---------- | ------ | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| $campo     | string | `null`             | `'id_sito'` `'id_pagina'` `'id_lingua'` `'sigla_lingua'` `'locale'` `'lingua'` `'strutturaAttiva'` `'is404'` `'lingua_2'` `'id_struttura'` `'id_modello'` `'id_composizione'` `'sub_classe'` `'id_categoria'` `'nome_struttura'` `'padre'` `'modello'` `'tipo_booking'` `'struttura'` `'id_menu_voci'` `'parent_id'` `'depth'` `'menu_top'` `'menu_bottom'` |
+| $id_pagina | string | `$cube->id_pagina` | ID della pagina. Se vuoto utilizza l'ID della pagina corrente.                                                                                                                                                                                                                                                                                              |
 
 ## Link Home
 
 - **`getLinkHome()`**
 
-Restituisce l'URL della home page del sito.
+Restituisce l'URL della home page del sito. La funzione cerca automaticamente la pagina con URL "index" e ne restituisce il link completo. Se non viene specificata una lingua, utilizza quella di default del sito. Il parametro `$absolute` permette di ottenere l'URL completo comprensivo di dominio.
 
 ```php
 /**
@@ -193,6 +182,29 @@ Restituisce l'URL della home page del sito.
 public function getLinkHome($id_lingua="", $id_struttura="", $id_sito="", $absolute=0) {
   ...
 }
+```
+
+| Parametro     | Tipo   | Default               | Valori ammessi o breve descrizione                                        |
+| ------------- | ------ | --------------------- | ------------------------------------------------------------------------- |
+| $id_lingua    | string | `$this->id_lingua`    | ID della lingua desiderata. Se vuoto utilizza l'ID della lingua corrente. |
+| $id_struttura | string | `$this->id_struttura` | ID della struttura. Se vuoto utilizza l'ID della struttura corrente.      |
+| $id_sito      | string | `$this->id_sito`      | ID del sito. Se vuoto utilizza l'ID del sito corrente.                    |
+| $absolute     | int    | `0`                   | `0` per URL relativo, `1` per URL assoluto con dominio completo.          |
+
+Esempio:
+
+```php
+// URL relativo della home page
+$linkHome = $cube->getLinkHome();
+// return -> "/index" o "/"
+
+// URL assoluto della home page
+$linkHomeAssoluto = $cube->getLinkHome("", "", "", 1);
+// return -> "https://esempio.com/" o "https://esempio.com/index"
+
+// Home page in lingua specifica
+$linkHomeEn = $cube->getLinkHome("2"); // dove 2 è l'ID della lingua inglese
+// return -> "/en" o "/en/index"
 ```
 
 ## Link padre

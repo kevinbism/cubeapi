@@ -33,7 +33,7 @@ echo $cube->getIdMenu('Menu Top');
 
 - **`getInfoMenu()`**
 
-Questa funzione permette di conoscere alcune informazione del menu in base all'`$id_menu`. La funzione restiuiscie un valore alla volta che è possibile impostare tramite il paramentro `$campo`.
+Questa funzione permette di conoscere alcune informazione del menu in base all'`$id_menu`. La funzione restituisce un valore alla volta che è possibile impostare tramite il paramentro `$campo`.
 
 ```php
 /**

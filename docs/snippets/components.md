@@ -5,7 +5,7 @@ description: Snippets di codice utile da poter riutilizzare.
 
 # Componenti PHP
 
-Di seguito ci sono diversi esempi di componenti che è possibile utilizzare all'interno dei propri progetti e non solo.
+Di seguito ci sono diversi esempi di componenti che è possibile utilizzare all'interno dei propri progetti.
 
 ## Image
 

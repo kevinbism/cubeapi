@@ -21,10 +21,10 @@ export default defineConfig({
       "meta",
       {
         property: "og:image",
-        content: "https://vitepress.dev/vitepress-og.jpg",
+        content: "/cubeapi-og.jpg",
       },
     ],
-    ["meta", { property: "og:url", content: "https://cube-api.dev/" }],
+    ["meta", { property: "og:url", content: "https://cube.doc.blastness.info/" }],
   ],
   themeConfig: {
     logo: "/logo.png",

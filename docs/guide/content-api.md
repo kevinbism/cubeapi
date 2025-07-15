@@ -3,7 +3,7 @@ title: API Contenuti
 description: API per i contenuti di Cube.
 ---
 
-# API Contenuti e non solo
+# API Contenuti
 
 Esplora le funzioni essenziali di Cube con questa pratica guida! Scopri le varie opzioni disponibili per ogni parametro e semplifica il tuo codice.
 

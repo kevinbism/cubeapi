@@ -36,32 +36,41 @@ export default defineConfig({
     darkModeSwitchTitle: "Cambia a tema scuro",
     nav: [
       { text: "Guida", link: "/guide/content-api" },
+      // { text: "Cubepack", link: "/cubepack/" },
       { text: "Blastcube", link: "https://cube.blastness.info/admin/index.php" },
     ],
     docFooter: {
       prev: "Pagina precedente",
       next: "Pagina successiva",
     },
-    sidebar: [
-      {
-        text: "Core Cube",
-        items: [
-          { text: "Contenuti", link: "/guide/content-api" },
-          { text: "BE", link: "/guide/be-api" },
-          { text: "Immagini", link: "/guide/images-api" },
-          { text: "Lingue", link: "/guide/lang-api" },
-          { text: "Menu", link: "/guide/menu-api" },
-          { text: "Pagina", link: "/guide/page-api" },
-          { text: "Template", link: "/guide/template-api" },
-          { text: "Utili", link: "/guide/utils-api" },
-          { text: "Funzioni di sistema", link: "/guide/functions-system-api" },
-        ],
-      },
-      {
-        text: "Code Snippets",
-        items: [{ text: "Componenti", link: "/snippets/components" }],
-      },
-    ],
+    sidebar: {
+      "/guide/": [
+        {
+          text: "Core Cube",
+          items: [
+            { text: "Contenuti", link: "/guide/content-api" },
+            { text: "BE", link: "/guide/be-api" },
+            { text: "Immagini", link: "/guide/images-api" },
+            { text: "Lingue", link: "/guide/lang-api" },
+            { text: "Menu", link: "/guide/menu-api" },
+            { text: "Pagina", link: "/guide/page-api" },
+            { text: "Template", link: "/guide/template-api" },
+            { text: "Utili", link: "/guide/utils-api" },
+            { text: "Funzioni di sistema", link: "/guide/functions-system-api" },
+          ],
+        },
+        {
+          text: "Code Snippets",
+          items: [{ text: "Componenti", link: "/snippets/components" }],
+        },
+      ],
+      // "/cubepack/": [
+      //   {
+      //     text: "Cubepack",
+      //     items: [{ text: "Installazione", link: "/cubepack/" }],
+      //   },
+      // ],
+    },
     search: {
       provider: "local",
       options: {

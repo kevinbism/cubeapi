@@ -60,7 +60,7 @@ export default defineConfig({
         },
         {
           text: "Code Snippets",
-          items: [{ text: "Componenti", link: "/snippets/components" }],
+          items: [{ text: "Componenti", link: "/guide/components" }],
         },
       ],
       // "/cubepack/": [

@@ -96,4 +96,4 @@ $this->cube_parts('components.my-component'); // [!code ++]
 echo $this->cube_parts('components.my-component'); // [!code error]
 ```
 
-Per qualche esempio pratico consulta la pagina [Componenti](/snippets/components)
+Per qualche esempio pratico consulta la pagina [Componenti](/guide/components)

@@ -2,7 +2,6 @@
   "name": "cubeapi",
   "version": "1.0.0",
   "description": "Documentazione API per Cube - Una guida completa per sviluppatori",
-  "main": "index.js",
   "homepage": "https://cubeapi.vercel.app",
   "repository": {
     "type": "git",

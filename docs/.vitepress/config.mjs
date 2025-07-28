@@ -37,7 +37,6 @@ export default defineConfig({
     nav: [
       { text: "Guida", link: "/guide/content-api" },
       // { text: "Cubepack", link: "/cubepack/" },
-      { text: "Blastcube", link: "https://cube.blastness.info/admin/index.php" },
     ],
     docFooter: {
       prev: "Pagina precedente",

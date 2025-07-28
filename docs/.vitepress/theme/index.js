@@ -4,7 +4,6 @@ import DefaultTheme from "vitepress/theme";
 import "virtual:group-icons.css";
 import "./style.css";
 import { inject } from "@vercel/analytics";
-import { injectSpeedInsights } from "@vercel/speed-insights";
 
 /** @type {import('vitepress').Theme} */
 export default {
@@ -18,11 +17,6 @@ export default {
     if (typeof window !== "undefined") {
       // Inietta Vercel Analytics
       inject();
-      // Inietta Vercel Speed Insights
-      injectSpeedInsights({
-        framework: "vitepress",
-        debug: true,
-      });
     }
   },
 };

@@ -10,7 +10,6 @@
   "dependencies": {
     "@docsearch/js": "3",
     "@vercel/analytics": "^1.5.0",
-    "@vercel/speed-insights": "^1.2.0",
     "express": "^5.1.0",
     "shiki": "^2.3.1",
     "vitepress-plugin-group-icons": "^1.3.5"

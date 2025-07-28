@@ -15,9 +15,14 @@ export default {
     });
   },
   enhanceApp({ app, router, siteData }) {
-    // Inietta Vercel Analytics
-    inject();
-    // Inietta Vercel Speed Insights
-    injectSpeedInsights();
+    if (typeof window !== "undefined") {
+      // Inietta Vercel Analytics
+      inject();
+      // Inietta Vercel Speed Insights
+      injectSpeedInsights({
+        framework: "vitepress",
+        debug: true,
+      });
+    }
   },
 };

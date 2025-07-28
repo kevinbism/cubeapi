@@ -1,11 +1,41 @@
 {
+  "name": "cubeapi",
+  "version": "1.0.0",
+  "description": "Documentazione API per Cube - Una guida completa per sviluppatori",
+  "main": "index.js",
+  "homepage": "https://cubeapi.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinbism/cubeapi"
+  },
+  "bugs": {
+    "url": "https://github.com/kevinbism/cubeapi/issues"
+  },
+  "keywords": [
+    "cubeapi",
+    "api",
+    "documentation",
+    "docs",
+    "vitepress",
+    "developer-tools"
+  ],
+  "author": {
+    "name": "Kevin Ramirez",
+    "email": "kevin.ramirez@blastness.com",
+    "url": "https://github.com/kevinbism"
+  },
+  "license": "MIT",
   "devDependencies": {
     "vitepress": "1.0.0-rc.42"
   },
   "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:preview": "vitepress preview docs",
+    "clean": "rm -rf docs/.vitepress/dist docs/.vitepress/cache"
   },
   "dependencies": {
     "@docsearch/js": "3",
@@ -14,9 +44,17 @@
     "shiki": "^2.3.1",
     "vitepress-plugin-group-icons": "^1.3.5"
   },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
   "prettier": {
     "singleAttributePerLine": false,
     "bracketSameLine": true,
     "printWidth": 100
-  }
+  },
+  "files": [
+    "docs/.vitepress/dist"
+  ]
 }

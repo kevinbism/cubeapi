@@ -58,15 +58,18 @@ export default defineConfig({
             { text: "Funzioni di sistema", link: "/guide/functions-system-api" },
           ],
         },
-        {
-          text: "Code Snippets",
-          items: [{ text: "Componenti", link: "/guide/components" }],
-        },
       ],
       "/components/": [
         {
           text: "Introduzione",
           items: [{ text: "Cos'è un componente?", link: "/components/" }],
+        },
+        {
+          text: "Lista componenti",
+          items: [
+            { text: "Image", link: "/components/image" },
+            { text: "Link", link: "/components/link" },
+          ],
         },
       ],
       // "/cubepack/": [

@@ -36,7 +36,7 @@ export default defineConfig({
     darkModeSwitchTitle: "Cambia a tema scuro",
     nav: [
       { text: "Guida", link: "/guide/content-api" },
-      // { text: "Cubepack", link: "/cubepack/" },
+      { text: "Componenti", link: "/components/" },
     ],
     docFooter: {
       prev: "Pagina precedente",
@@ -61,6 +61,12 @@ export default defineConfig({
         {
           text: "Code Snippets",
           items: [{ text: "Componenti", link: "/guide/components" }],
+        },
+      ],
+      "/components/": [
+        {
+          text: "Introduzione",
+          items: [{ text: "Cos'è un componente?", link: "/components/" }],
         },
       ],
       // "/cubepack/": [

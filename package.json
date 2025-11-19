@@ -23,7 +23,7 @@
     "email": "kevin.ramirez@blastness.com",
     "url": "https://github.com/kevinbism"
   },
-  "license": "MIT",
+  "license": "UNLICENSED",
   "devDependencies": {
     "vitepress": "1.0.0-rc.42"
   },

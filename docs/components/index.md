@@ -1,6 +1,6 @@
 # Cos'è un componente?
 
-Un **componente** è come un piccolo mattoncino del tuo sito: ha tutto quello che serve per funzionare da solo e puoi metterlo ovunque senza rifare il lavoro.
+Un **componente** è come un piccolo mattoncino del tuo sito su _Cube_: ha tutto quello che serve per funzionare da solo e puoi metterlo ovunque senza rifare il lavoro.
 
 Nei nostri progetti, un componente può avere fino a **3 parti**:
 

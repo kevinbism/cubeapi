@@ -49,6 +49,64 @@ foreach ($this->getModulo('immagini') as $img) {
 
 ```html
 <figure class="image-class image-class--modificatore" data-caos="fade-up">
+  <picture class="lazy" data-index="1">
+    <source
+      data-src="https://cdn.blastness/thumbnail_mobile/image.webp"
+      srcset=""
+      media="(max-width:769px)"
+      type="image/webp" />
+    <source
+      data-src="https://cdn.blastness/thumbnail_mobile/image.jpg"
+      srcset=""
+      media="(max-width:769px)"
+      type="image/jpg" />
+    <source data-src="https://cdn.blastness/full/image.webp" srcset="" type="image/webp" />
+    <img
+      class="image-class__img"
+      alt="alt"
+      title="title"
+      data-src="https://cdn.blastness/full/image.jpg"
+      src="" />
+  </picture>
+</figure>
+```
+
+## Image con lazy loading nativo
+
+Dalla configurazione del componente è possible integrare l'attributo `loading="lazy"` all'interno delle immagini. E' sufficiente rimuovere queste proprietà:
+
+```diff
+- 'priority' => false,
+- 'class' => 'lazy',
+- 'lazy' => false,
+```
+
+Il componente finale diventa in questo modo:
+
+```php [Image.php]
+<?php $classList = explode(' ', $class ?? 'image'); ?>
+
+<figure class="<?= implode(' ', $classList) ?>" <?= $attr ?? '' ?>>
+  <?= $this->getPicture($img['files'],
+    [
+      'classImg' => $classList[0].'__img',
+      'title' => $img['title'],
+      'data' => isset($data[0]) ? [$data[0] => $data[1]] : null,
+      'type' => $type ?? 'medium',
+      'mediaQuery' => [
+        '(max-width:769px)' => 'thumbnail_mobile',
+      ]
+    ])
+  ?>
+</figure>
+```
+
+### Risultato finale
+
+È più pulito e ottmizzato per i browser.
+
+```html
+<figure class="image-class image-class--modificatore" data-caos="fade-up">
   <picture data-index="1">
     <source
       srcset="https://cdn.blastness/thumbnail_mobile/image.webp"
@@ -66,35 +124,5 @@ foreach ($this->getModulo('immagini') as $img) {
       title="title"
       src="https://cdn.blastness/full/image.jpg" />
   </picture>
-</figure>
-```
-
-## Image con lazy loading nativo
-
-Dalla configurazione del componente è possible integrare l'attributo `loading="lazy"` all'interno delle immagini. E' sufficiente rimuovere queste proprietà:
-
-```diff
-- 'priority' => false,
-- 'class' => 'lazy',
-- 'lazy' => false,
-```
-
-Il componente finale risulterà in questo modo:
-
-```php [Image.php]
-<?php $classList = explode(' ', $class ?? 'image'); ?>
-
-<figure class="<?= implode(' ', $classList) ?>" <?= $attr ?? '' ?>>
-  <?= $this->getPicture($img['files'],
-    [
-      'classImg' => $classList[0].'__img',
-      'title' => $img['title'],
-      'data' => isset($data[0]) ? [$data[0] => $data[1]] : null,
-      'type' => $type ?? 'medium',
-      'mediaQuery' => [
-        '(max-width:769px)' => 'thumbnail_mobile',
-      ]
-    ])
-  ?>
 </figure>
 ```

@@ -1,4 +1,4 @@
-# Image
+# Image fantastiche
 
 ```php [Image.php]
 <?php $classList = explode(' ', $class ?? 'image'); ?>

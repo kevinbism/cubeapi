@@ -103,7 +103,7 @@ Il componente finale diventa in questo modo:
 
 ### Risultato finale
 
-È più pulito e ottmizzato per i browser.
+È più pulito e ottimizzato per i browser.
 
 ```html
 <figure class="image-class image-class--modificatore" data-caos="fade-up">

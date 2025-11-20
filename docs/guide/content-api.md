@@ -7,10 +7,6 @@ description: API per i contenuti di Cube.
 
 Esplora le funzioni essenziali di Cube con questa pratica guida! Scopri le varie opzioni disponibili per ogni parametro e semplifica il tuo codice.
 
-:::info DISCLAIMER
-Questa guida utilizza `$cube` al posto di `$this` come nome dell'istanza. _È puramente estetico_. Potete continuare a usare `$this` per chiamare i metodi e le funzioni all'interno di Cube.
-:::
-
 ## Descrizione anteprima
 
 - **`getDescrizioneAnteprima()`**
@@ -31,7 +27,7 @@ function getDescrizioneAnteprima($id_pagina, $id_lingua) {
 Esempio:
 
 ```php
-<div class="testo"><?= $cube->getDescrizioneAnteprima(); ?></div>
+<div class="testo"><?= $this->getDescrizioneAnteprima(); ?></div>
 ```
 
 ## Testo
@@ -54,7 +50,7 @@ function getTesto($id_pagina, $id_lingua) {
 Esempio:
 
 ```php
-<div class="testo"><?= $cube->getTesto(); ?></div>
+<div class="testo"><?= $this->getTesto(); ?></div>
 ```
 
 ## Titolo
@@ -77,7 +73,7 @@ function getTitolo($id_pagina, $id_lingua) {
 Esempio:
 
 ```php
-<h1 class="titolo"><?= $cube->getTitolo(); ?></h1>
+<h1 class="titolo"><?= $this->getTitolo(); ?></h1>
 ```
 
 ## Titolo anteprima
@@ -100,7 +96,7 @@ function getTitoloAnteprima($id_pagina, $id_lingua) {
 Esempio:
 
 ```php
-<h3 class="titolo"><?= $cube->getTitoloAnteprima(); ?></h3>
+<h3 class="titolo"><?= $this->getTitoloAnteprima(); ?></h3>
 ```
 
 ## Sottotitolo
@@ -123,5 +119,5 @@ function getSottotitolo($id_pagina, $id_lingua) {
 Esempio:
 
 ```php
-<h2 class="sottotitolo"><?= $cube->getSottotitolo(); ?></h2>
+<h2 class="sottotitolo"><?= $this->getSottotitolo(); ?></h2>
 ```

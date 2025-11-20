@@ -70,14 +70,14 @@ public function getPath($opz="", $id_sito="", $forceCDN=0) {
 | $forceCDN | number | `0`     | Utilizza il percorso della CDN. Funziona solo per il parametro `img \| video` e se il sito non ha una CDN attiva, altrimenti di default userà questo percorso anche quando il parametro rimane impostato su `0`. |
 
 ```php [Risultati in base al parametro $opz]
-$cube->getPath('img'); // -> /images/
-$cube->getPath('img', $cube->id_sito, 1); // -> https://cdn.blastness.biz/media/id_sito/
-$cube->getPath('menu'); // -> /
-$cube->getPath('absolute'); // -> http://dominiohotel.com/templates/nome_template
-$cube->getPath('preview'); // -> http://dominiohotel.com/
-$cube->getPath('libraries'); // -> https://cdn.blastness.biz/assets/libraries/
-$cube->getPath('video'); // -> /video/
-$cube->getPath('video', $cube->id_sito, 1); // -> https://cdn.blastness.biz/video/id_sito/
-$cube->getPath('public'); // -> /templates/nome_template/public
-$cube->getPath(); // -> /templates/nome_template
+$this->getPath('img'); // -> /images/
+$this->getPath('img', $this->id_sito, 1); // -> https://cdn.blastness.biz/media/id_sito/
+$this->getPath('menu'); // -> /
+$this->getPath('absolute'); // -> http://dominiohotel.com/templates/nome_template
+$this->getPath('preview'); // -> http://dominiohotel.com/
+$this->getPath('libraries'); // -> https://cdn.blastness.biz/assets/libraries/
+$this->getPath('video'); // -> /video/
+$this->getPath('video', $this->id_sito, 1); // -> https://cdn.blastness.biz/video/id_sito/
+$this->getPath('public'); // -> /templates/nome_template/public
+$this->getPath(); // -> /templates/nome_template
 ```

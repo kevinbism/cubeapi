@@ -36,11 +36,11 @@ Esempio:
 ```php
 <?php
 // Utilizzando il modulo immagini di Cube.
-$images = $cube->getModulo('Immagine');
+$images = $this->getModulo('Immagine');
 
 foreach ($images as $image) :
 ?>
-  <img class="immagine" src="<= $cube->getImg($image['files'], 'full', true); ?>">
+  <img class="immagine" src="<= $this->getImg($image['files'], 'full', true); ?>">
 <?php endforeach; ?>
 ```
 
@@ -64,11 +64,11 @@ function getImgAnteprima($id_pagina) {
 Non è possibile utilizzare questa funzione separatamente ma deve essere incorporata all'interno di `getImg()` o `getPicture()`. Ad esempio:
 
 ```php
-$cube->getImg($cube->getImgAnteprima($img['files']));
+$this->getImg($this->getImgAnteprima($img['files']));
 
 // oppure
 
-$cube->getPicture($cube->getImgAnteprima($img['files']), [...]);
+$this->getPicture($this->getImgAnteprima($img['files']), [...]);
 ```
 
 :::
@@ -78,7 +78,7 @@ Esempio:
 ```php
 <img
 class="immagine"
-src="<?= $cube->getImg($cube->getImgAnteprima($cube->id_pagina)); ?>"
+src="<?= $this->getImg($this->getImgAnteprima($this->id_pagina)); ?>"
 >
 ```
 
@@ -110,7 +110,7 @@ $offers = $cms->getModulo("Offerte");
 foreach ($offers as $offer) :
   $id_albergo = $offer['offerta_id_albergo'];
   $id_prodotto = $offer['offerta_id_prodotto'];
-  $imgOfferta = $cube->getImgOfferta($id_albergo, $id_prodotto, 'main');
+  $imgOfferta = $this->getImgOfferta($id_albergo, $id_prodotto, 'main');
 ?>
   <img class="immagine-offerta" src="<?= $imgOfferta; ?>">
 <?php endforeach; ?>
@@ -145,7 +145,7 @@ Esempio:
 ```php
 <img
 class="logo"
-src="<?= $cube->getLogo('logo', $cube->id_struttura, true); ?>"
+src="<?= $this->getLogo('logo', $this->id_struttura, true); ?>"
 >
 ```
 
@@ -192,7 +192,7 @@ Esempio:
 
 ```php
 <a href="#home" class="link-logo">
-  <?= $cube->getLogoP([
+  <?= $this->getLogoP([
     'file' => 'logo',
     'title' => 'Titolo logo',
     'class' => 'logo',
@@ -250,7 +250,7 @@ Esempio:
 ```php
 <img
 class="logo"
-src="<?= $cube->getLogoWebp('logo', $cube->id_struttura); ?>"
+src="<?= $this->getLogoWebp('logo', $this->id_struttura); ?>"
 >
 ```
 
@@ -299,7 +299,7 @@ Esempio:
 ```php
 <?php
 // Utilizzando il modulo immagini di Cube.
-$images = $cube->getModulo('Immagine');
+$images = $this->getModulo('Immagine');
 
 foreach ($images as $image) :
 ?>

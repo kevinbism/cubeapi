@@ -27,7 +27,7 @@ public function __($slug, $id_lingua="") {
 Esempio:
 
 ```php
-<a class="link" href="#"><?= $cube->__('dicitura-scopri'); ?></a>
+<a class="link" href="#"><?= $this->__('dicitura-scopri'); ?></a>
 ```
 
 ## Lingua default
@@ -51,7 +51,7 @@ Esempio:
 
 ```php
 // In questo modo verranno caricati solo gli articoli della lingua di default
-$articoli = $cube->getModulo('Articoli', $cube->lingua_default());
+$articoli = $this->getModulo('Articoli', $this->lingua_default());
 ```
 
 ## Menu lingue
@@ -78,7 +78,7 @@ Esempio:
 
 ```php
 // Recupera tutte le lingue disponibili per creare un menu
-$lingue_menu = $cube->getMenuLingue();
+$lingue_menu = $this->getMenuLingue();
 
 // Genera il menu delle lingue
 foreach($lingue_menu as $lingua) {
@@ -130,7 +130,7 @@ public function trova_lingua($id_lingua, $tipo_lingua="") {
 
 | Parametro    | Tipo   | Default            | Valori ammessi o breve descrizione                                               |
 | ------------ | ------ | ------------------ | -------------------------------------------------------------------------------- |
-| $id_lingua   | number | `$cube->id_lingua` | Cuando non viene impostato usa la lingua di navigazione del sito.                |
+| $id_lingua   | number | `$this->id_lingua` | Cuando non viene impostato usa la lingua di navigazione del sito.                |
 | $tipo_lingua | string | `sigla`            | `'sigla'` `'2_caratteri'` `'sigla_2_caratteri'` `'esteso'` `'lingua'` `'locale'` |
 
 Esempio di output per ogni tipologia:

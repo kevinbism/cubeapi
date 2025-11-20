@@ -28,7 +28,7 @@ Nei nostri progetti, un componente può avere fino a **3 parti**:
 Esempio rapido:
 
 ```php
-$cube->cube_parts('component_folder.Image', [
+$this->cube_parts('component_folder.Image', [
   'img' => $img,
   'class' => 'image-class',
   'type' => 'full'

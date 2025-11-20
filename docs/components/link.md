@@ -13,8 +13,8 @@ $attr = $attr ?? "";
 Esempio integrazione:
 
 ```php
-foreach ($cube->getModulo('link') as $link) {
-  $cube->cube_parts('component_folder.Link', [
+foreach ($this->getModulo('link') as $link) {
+  $this->cube_parts('component_folder.Link', [
     'link' => $link,
     'class' => 'link-class',
     'attr' => 'data-caos="fade-up"'

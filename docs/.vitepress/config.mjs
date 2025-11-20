@@ -36,7 +36,7 @@ export default defineConfig({
     darkModeSwitchTitle: "Cambia a tema scuro",
     nav: [
       { text: "Guida", link: "/guide/content-api" },
-      // { text: "Cubepack", link: "/cubepack/" },
+      { text: "Componenti", link: "/components/" },
     ],
     docFooter: {
       prev: "Pagina precedente",
@@ -58,9 +58,18 @@ export default defineConfig({
             { text: "Funzioni di sistema", link: "/guide/functions-system-api" },
           ],
         },
+      ],
+      "/components/": [
         {
-          text: "Code Snippets",
-          items: [{ text: "Componenti", link: "/guide/components" }],
+          text: "Introduzione",
+          items: [{ text: "Cos'è un componente?", link: "/components/" }],
+        },
+        {
+          text: "Lista componenti",
+          items: [
+            { text: "Image", link: "/components/image" },
+            { text: "Link", link: "/components/link" },
+          ],
         },
       ],
       // "/cubepack/": [
@@ -94,6 +103,10 @@ export default defineConfig({
     },
     footer: {
       copyright: "Copyright &copy; 2025 Blastness",
+    },
+    editLink: {
+      pattern: "https://github.com/kevinbism/cubeapi/edit/main/docs/:path",
+      text: "Modifica questa pagina su GitHub",
     },
   },
   markdown: {

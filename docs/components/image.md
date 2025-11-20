@@ -1,13 +1,10 @@
 # Image
 
 ```php [Image.php]
-<?php
-global $cube;
-$classList = explode(' ', $class ?? 'image');
-?>
+<?php $classList = explode(' ', $class ?? 'image'); ?>
 
 <figure class="<?= implode(' ', $classList) ?>" <?= $attr ?? '' ?>>
-  <?= $cube->getPicture($img['files'],
+  <?= $this->getPicture($img['files'],
     [
       'priority' => false,
       'class' => 'lazy',
@@ -35,8 +32,8 @@ Nella seguente tabella sono riportati i parametri che è possibile configurare:
 <h3>Esempio:</h3>
 
 ```php
-foreach ($cube->getModulo('immagini') as $img) {
-  $cube->cube_parts('component_folder.Image', [
+foreach ($this->getModulo('immagini') as $img) {
+  $this->cube_parts('component_folder.Image', [
     'img' => $img,
     'class' => 'image-class',
     'type' => 'full'
@@ -57,13 +54,10 @@ Dalla configurazione del componente è possible integrare l'attributo `loading="
 Il componente finale risulterà in questo modo:
 
 ```php [Image.php]
-<?php
-global $cube;
-$classList = explode(' ', $class ?? 'image');
-?>
+<?php $classList = explode(' ', $class ?? 'image'); ?>
 
 <figure class="<?= implode(' ', $classList) ?>" <?= $attr ?? '' ?>>
-  <?= $cube->getPicture($img['files'],
+  <?= $this->getPicture($img['files'],
     [
       'classImg' => $classList[0].'__img',
       'title' => $img['title'],

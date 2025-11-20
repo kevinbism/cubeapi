@@ -10,13 +10,10 @@ Di seguito ci sono diversi esempi di componenti che è possibile utilizzare all'
 ## Image
 
 ```php [Image.php]
-<?php
-global $cube;
-$classList = explode(' ', $class ?? 'image');
-?>
+<?php $classList = explode(' ', $class ?? 'image'); ?>
 
 <figure class="<?= implode(' ', $classList) ?>" <?= $attr ?? '' ?>>
-  <?= $cube->getPicture($img['files'],
+  <?= $this->getPicture($img['files'],
     [
       'priority' => false,
       'class' => 'lazy',
@@ -36,8 +33,8 @@ $classList = explode(' ', $class ?? 'image');
 Esempio integrazione:
 
 ```php
-foreach ($cube->getModulo('immagini') as $img) {
-  $cube->cube_parts('component_folder.Image', [
+foreach ($this->getModulo('immagini') as $img) {
+  $this->cube_parts('component_folder.Image', [
     'img' => $img,
     'class' => 'image-class',
     'type' => 'full'
@@ -60,8 +57,8 @@ $attr = $attr ?? "";
 Esempio integrazione:
 
 ```php
-foreach ($cube->getModulo('link') as $link) {
-  $cube->cube_parts('component_folder.Link', [
+foreach ($this->getModulo('link') as $link) {
+  $this->cube_parts('component_folder.Link', [
     'link' => $link,
     'class' => 'link-class',
     'attr' => 'data-caos="fade-up"'
@@ -73,7 +70,6 @@ foreach ($cube->getModulo('link') as $link) {
 
 ```php
 <?php
-global $cms;
 $classList = explode(' ', $class ?? '');
 $fileLogo = $fileLogo ?? 'logo';
 $w = $w ?? '';
@@ -102,7 +98,7 @@ $id = $cms->isGruppo() ? $id : $cms->id_struttura;
 Esempio integrazione:
 
 ```php
-$cube->cube_parts('component_folder.Logo', [
+$this->cube_parts('component_folder.Logo', [
   'fileLogo' => 'altlogo',
   'class' => 'header-logo header-logo--alt',
   'p' => true,

@@ -55,13 +55,13 @@ Esempio:
 
 ```php
 // Breadcrumb base con classi predefinite
-echo $cube->getBreadCrumb();
+echo $this->getBreadCrumb();
 
 // Breadcrumb con classi personalizzate
-echo $cube->getBreadCrumb('my-breadcrumb', 'breadcrumb-item', false, 'breadcrumb-link');
+echo $this->getBreadCrumb('my-breadcrumb', 'breadcrumb-item', false, 'breadcrumb-link');
 
 // Breadcrumb con animazione AOS
-echo $cube->getBreadCrumb('breadcrumb', 'nav-item', true, 'nav-link');
+echo $this->getBreadCrumb('breadcrumb', 'nav-item', true, 'nav-link');
 ```
 
 ## ID Home
@@ -100,7 +100,7 @@ public function getIdModulo($modulo) {
 Esempio:
 
 ```php
-$idModuloCamere = $cube->getIdModulo('Modulo camere');
+$idModuloCamere = $this->getIdModulo('Modulo camere');
 // return -> '12345' corrispondente all'id_modulo camere
 ```
 
@@ -133,7 +133,7 @@ Gallery
 ```
 
 ```php{5-9} [Dentro la pagina Suite eseguo la funzione]
-$infoPadre = $cube->getIndoPadre();
+$infoPadre = $this->getIndoPadre();
 
 // $infoPadre conterrà le seguenti informazioni
 $infoPadre = [
@@ -163,7 +163,7 @@ public function getInfoPagina($campo, $id_pagina="") {
 | Parametro  | Tipo   | Default            | Valori ammessi o breve descrizione                                                                                                                                                                                                                                                                                                                          |
 | ---------- | ------ | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | $campo     | string | `null`             | `'id_sito'` `'id_pagina'` `'id_lingua'` `'sigla_lingua'` `'locale'` `'lingua'` `'strutturaAttiva'` `'is404'` `'lingua_2'` `'id_struttura'` `'id_modello'` `'id_composizione'` `'sub_classe'` `'id_categoria'` `'nome_struttura'` `'padre'` `'modello'` `'tipo_booking'` `'struttura'` `'id_menu_voci'` `'parent_id'` `'depth'` `'menu_top'` `'menu_bottom'` |
-| $id_pagina | string | `$cube->id_pagina` | ID della pagina. Se vuoto utilizza l'ID della pagina corrente.                                                                                                                                                                                                                                                                                              |
+| $id_pagina | string | `$this->id_pagina` | ID della pagina. Se vuoto utilizza l'ID della pagina corrente.                                                                                                                                                                                                                                                                                              |
 
 ## Link Home
 
@@ -195,15 +195,15 @@ Esempio:
 
 ```php
 // URL relativo della home page
-$linkHome = $cube->getLinkHome();
+$linkHome = $this->getLinkHome();
 // return -> "/index" o "/"
 
 // URL assoluto della home page
-$linkHomeAssoluto = $cube->getLinkHome("", "", "", 1);
+$linkHomeAssoluto = $this->getLinkHome("", "", "", 1);
 // return -> "https://esempio.com/" o "https://esempio.com/index"
 
 // Home page in lingua specifica
-$linkHomeEn = $cube->getLinkHome("2"); // dove 2 è l'ID della lingua inglese
+$linkHomeEn = $this->getLinkHome("2"); // dove 2 è l'ID della lingua inglese
 // return -> "/en" o "/en/index"
 ```
 
@@ -255,19 +255,19 @@ Esempio:
 
 ```php
 // URL della pagina corrente
-$linkPagina = $cube->getLinkPagina();
+$linkPagina = $this->getLinkPagina();
 // return -> "/camere/suite"
 
 // URL di una pagina specifica
-$linkPaginaSpecifica = $cube->getLinkPagina(12345);
+$linkPaginaSpecifica = $this->getLinkPagina(12345);
 // return -> "/offerte/estate-2024"
 
 // URL di una pagina in lingua specifica
-$linkPaginaEn = $cube->getLinkPagina(12345, "2");
+$linkPaginaEn = $this->getLinkPagina(12345, "2");
 // return -> "/en/offers/summer-2024"
 
 // In progetti multidomain - pagina di altra struttura
-$linkPaginaAltroSito = $cube->getLinkPagina(67890);
+$linkPaginaAltroSito = $this->getLinkPagina(67890);
 // return -> "https://altrosito.com/servizi"
 ```
 
@@ -370,13 +370,13 @@ Esempio:
 
 ```php
 // Recupera un modulo dalla pagina corrente
-$sliderPrincipale = $cube->getModulo("Slider principale");
+$sliderPrincipale = $this->getModulo("Slider principale");
 
 // Recupera un modulo da una pagina specifica
-$testiSpecifici = $cube->getModulo("Testi homepage", "12345");
+$testiSpecifici = $this->getModulo("Testi homepage", "12345");
 
 // Recupera un modulo in una lingua specifica
-$moduloEn = $cube->getModulo("Elenco servizi", "", "2");
+$moduloEn = $this->getModulo("Elenco servizi", "", "2");
 ```
 
 ## Pagine modello
@@ -451,7 +451,7 @@ Gallery
 
 ```php [Dentro la pagina Camere eseguo la funzione]
 // In questo caso l'$id_menu specificato è il 'Menu Top'
-$pagineFigli = $cube->getPagineFigli('Menu Top');
+$pagineFigli = $this->getPagineFigli('Menu Top');
 print_r($pagineFigli);
 
 // Esempio output:
@@ -557,15 +557,15 @@ Esempio:
 
 ```php
 // Trova l'URL della pagina con ancora "contatti"
-$linkContatti = $cube->trovaAncora("contatti");
+$linkContatti = $this->trovaAncora("contatti");
 // return -> "/contatti"
 
 // Trova l'URL di una pagina in lingua specifica
-$linkContattiEn = $cube->trovaAncora("contacts", "2");
+$linkContattiEn = $this->trovaAncora("contacts", "2");
 // return -> "/en/contacts"
 
 // Trova l'URL di una pagina in struttura specifica
-$linkContattiStruttura = $cube->trovaAncora("contatti", "", "3");
+$linkContattiStruttura = $this->trovaAncora("contatti", "", "3");
 // return -> "/struttura-specifica/contatti"
 ```
 
@@ -603,20 +603,20 @@ Esempio:
 
 ```php
 // Cerca l'ID della pagina con ancora "contatti"
-$idPaginaContatti = $cube->trovaAncoraIdPagina("contatti");
+$idPaginaContatti = $this->trovaAncoraIdPagina("contatti");
 // return -> 12345
 
 // Cerca l'ancora in una lingua specifica
-$idPaginaContattiEn = $cube->trovaAncoraIdPagina("contact", "2");
+$idPaginaContattiEn = $this->trovaAncoraIdPagina("contact", "2");
 // return -> 12346
 
 // Cerca l'ancora in una struttura specifica
-$idPaginaContattiStruttura = $cube->trovaAncoraIdPagina("contatti", "", "5");
+$idPaginaContattiStruttura = $this->trovaAncoraIdPagina("contatti", "", "5");
 // return -> 12347
 
 // Utilizzare l'ID per altre operazioni
-$idPagina = $cube->trovaAncoraIdPagina("servizi");
-$linkPagina = $cube->getLinkPagina($idPagina);
+$idPagina = $this->trovaAncoraIdPagina("servizi");
+$linkPagina = $this->getLinkPagina($idPagina);
 // return -> "/servizi"
 ```
 

@@ -25,7 +25,7 @@ public function getIdMenu($menu, $id_struttura="") {
 Esempio:
 
 ```php
-echo $cube->getIdMenu('Menu Top');
+echo $this->getIdMenu('Menu Top');
 // '123123' -> esempio di id_menu
 ```
 
@@ -93,13 +93,13 @@ Esempio:
 
 ```php
 // Recupera il menu principale
-$menu_principale = $cube->getMenu($cube->getIdMenu('Menu Top'));
+$menu_principale = $this->getMenu($this->getIdMenu('Menu Top'));
 
 // Recupera solo le voci figlie di una voce specifica
-$sottomenu = $cube->getMenu('Menu Top', 12345);
+$sottomenu = $this->getMenu('Menu Top', 12345);
 
 // Recupera solo voci visibili con filtro personalizzato
-$menu_filtrato = $cube->getMenu($id_menu, 0, "", "tipo = 0", 1);
+$menu_filtrato = $this->getMenu($id_menu, 0, "", "tipo = 0", 1);
 ```
 
 ## Menu secondario
@@ -136,13 +136,13 @@ Esempio:
 
 ```php
 // Recupera il menu secondario della sezione corrente
-$menu_secondario = $cube->getMenuSecondario();
+$menu_secondario = $this->getMenuSecondario();
 
 // Recupera il menu secondario da un menu specifico
-$menu_sidebar = $cube->getMenuSecondario('Menu Sidebar');
+$menu_sidebar = $this->getMenuSecondario('Menu Sidebar');
 
 // Recupera tutte le voci (anche non visibili) con opzione personalizzata
-$menu_completo = $cube->getMenuSecondario($id_menu, 2, 0);
+$menu_completo = $this->getMenuSecondario($id_menu, 2, 0);
 ```
 
 ## Menu secondario terzo livello
@@ -175,13 +175,13 @@ La funzione analizza la struttura del menu e:
 
 ```php
 // Recupera il menu di terzo livello della voce corrente
-$menu_terzo_livello = $cube->getMenuSecondarioTerzoLivello();
+$menu_terzo_livello = $this->getMenuSecondarioTerzoLivello();
 
 // Recupera il menu di terzo livello di una voce specifica
-$menu_specifico = $cube->getMenuSecondarioTerzoLivello('Menu Top', 12345);
+$menu_specifico = $this->getMenuSecondarioTerzoLivello('Menu Top', 12345);
 
 // Recupera il menu di terzo livello da un menu personalizzato
-$menu_custom = $cube->getMenuSecondarioTerzoLivello('Menu Sidebar', $id_voce);
+$menu_custom = $this->getMenuSecondarioTerzoLivello('Menu Sidebar', $id_voce);
 ```
 
 ## Menu landing
@@ -227,10 +227,10 @@ Ogni voce restituita contiene:
 
 ```php
 // Recupera le landing page della struttura corrente
-$landing_pages = $cube->getMenuLanding();
+$landing_pages = $this->getMenuLanding();
 
 // Recupera le landing page di una struttura specifica
-$landing_struttura = $cube->getMenuLanding('12345');
+$landing_struttura = $this->getMenuLanding('12345');
 
 // Esempio di utilizzo per creare un menu di landing page
 foreach($landing_pages as $landing) {

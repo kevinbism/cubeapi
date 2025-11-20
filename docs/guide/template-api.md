@@ -43,7 +43,7 @@ public function getInfoStruttura($campo, $id_struttura="", $opz="id_struttura") 
 | Parametro     | Tipo   | Default               | Valori ammessi o breve descrizione                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | ------------- | ------ | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | $campo        | string | `null`                | `'id_struttura'` `'id_sito'` `'id_struttura_padre'` `'attivo'` `'nome_struttura'` `'interfaccia'` `'tipo'` `'indirizzo'` `'telefono'` `'mobile'` `'fax'` `'email'` `'partita_iva'` `'sito_web'` `'booking_domain'` `'id_stile'` `'id_albergo'` `'dc'` `'dc_gruppo'` `'id_gruppo'` `'id_mailing'` `'tabella_mailing'` `'action_mailing'` `'club_id_mailing'` `'club_tabella_mailing'` `'club_action_mailing'` `'club_codice_sconto'` `'google_map'` `'localita'` `'caratteristica'` `'id_stile_servizi'` `'id_albergo_servizi'` `'dc_servizi'` `'social_fb'` `'social_twitter'` `'social_google'` `'social_istagram'` `'social_youtube'` `'social_tripadvisor'` `'social_whatsapp'` `'social_linkedin'` `'mostra_nel_qr'` `'ordine'` `'gestione_offerte_gruppo'` `'visibility'` `'script'` `'shop_id'` `'id_duplica'` |
-| $id_struttura | string | `$cube->id_struttura` | Quando questo parametro non viene specificato, in automatico imposta l'`id_stuttura` del progetto in cui si sta lavorando.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| $id_struttura | string | `$this->id_struttura` | Quando questo parametro non viene specificato, in automatico imposta l'`id_stuttura` del progetto in cui si sta lavorando.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | $opz          | string | `id_struttura`        | È possibile scegliere l'impostazione dall'`id_struttura` oppure dall'`id_sito`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
 ## Lista strutture
@@ -116,7 +116,7 @@ public function is_group() {
 Esempio:
 
 ```php
-if ($cube->is_group()) {
+if ($this->is_group()) {
   // Codice quando la struttura è un gruppo.
 }
 ```
@@ -171,11 +171,11 @@ public function numero_strutture($id_sito) {
 In questo caso `$id_sito` non viene impostato automaticamente ma è possibile ottenere questo dato tramite la funzione `info_sito()`. Esempio:
 
 ```php
-$numeroStrutture = $cube->numero_strutture($cube->info_sito('id_sito'));
+$numeroStrutture = $this->numero_strutture($this->info_sito('id_sito'));
 
-// oppure tramite la proprietà $cube->id_sito
+// oppure tramite la proprietà $this->id_sito
 
-$numeroStrutture = $cube->numero_strutture($cube->id_sito);
+$numeroStrutture = $this->numero_strutture($this->id_sito);
 ```
 
 ## Strutture
@@ -216,23 +216,23 @@ Esempio:
 
 ```php
 // Recupera tutte le strutture del sito corrente
-$strutture = $cube->getStrutture();
+$strutture = $this->getStrutture();
 
 // Recupera strutture di un sito specifico
-$struttureGruppo = $cube->getStrutture("123");
+$struttureGruppo = $this->getStrutture("123");
 
 // Esempio di utilizzo per creare un menu di strutture
 foreach ($strutture as $struttura) {
-    echo '<a href="' . $cube->link_to($struttura['id_struttura']) . '">';
+    echo '<a href="' . $this->link_to($struttura['id_struttura']) . '">';
     echo $struttura['nome_struttura'];
     echo '</a>';
 }
 
 // Contare le strutture disponibili
-$numeroStrutture = count($cube->getStrutture());
+$numeroStrutture = count($this->getStrutture());
 
 // Filtrare strutture attive
-$struttureAttive = array_filter($cube->getStrutture(), function($struttura) {
+$struttureAttive = array_filter($this->getStrutture(), function($struttura) {
     return $struttura['attivo'] == 1;
 });
 ```

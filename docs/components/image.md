@@ -32,7 +32,7 @@ Nella seguente tabella sono riportati i parametri che è possibile configurare:
 | $class    | string | `image` | È la classe principale del componente associata all'elemento `figure`. Sull'elemento `img` viene costruita la classe dalla classe principlate. Se si passano più di due classi, dalla seconda in poi sono associate solo all'elemento `figure`, utile per aggiungere modificatori. |
 | $attr     | strnig | `null`  | Consente di assegnare attributi all'elemento figure.                                                                                                                                                                                                                               |
 
-### Esempio:
+<h3>Esempio:</h3>
 
 ```php
 foreach ($cube->getModulo('immagini') as $img) {

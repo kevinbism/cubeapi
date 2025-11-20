@@ -104,6 +104,10 @@ export default defineConfig({
     footer: {
       copyright: "Copyright &copy; 2025 Blastness",
     },
+    editLink: {
+      pattern: "https://github.com/kevinbism/cubeapi/edit/main/docs/:path",
+      text: "Modifica questa pagina su GitHub",
+    },
   },
   markdown: {
     theme: {

@@ -6,8 +6,8 @@
 <figure class="<?= implode(' ', $classList) ?>" <?= $attr ?? '' ?>>
   <?= $this->getPicture($img['files'],
     [
-      'priority' => false,
       'class' => 'lazy',
+      'priority' => false,
       'lazy' => false,
       'classImg' => $classList[0].'__img',
       'title' => $img['title'],
@@ -23,22 +23,50 @@
 
 Nella seguente tabella sono riportati i parametri che è possibile configurare:
 
-| Parametro | Tipo   | Default | Valori ammessi o breve descrizione                                                                                                                                                                                                                                                 |
-| --------- | ------ | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| $img      | array  | array   | Fa riferimento all'array dell'immagine che gli viene passata da Cube.                                                                                                                                                                                                              |
-| $class    | string | `image` | È la classe principale del componente associata all'elemento `figure`. Sull'elemento `img` viene costruita la classe dalla classe principlate. Se si passano più di due classi, dalla seconda in poi sono associate solo all'elemento `figure`, utile per aggiungere modificatori. |
-| $attr     | strnig | `null`  | Consente di assegnare attributi all'elemento figure.                                                                                                                                                                                                                               |
+| Parametro | Tipo   | Default  | Valori ammessi o breve descrizione                                                                                                                                                                                                                                                 |
+| --------- | ------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| $img      | array  | array    | Fa riferimento all'array dell'immagine che gli viene passata da Cube.                                                                                                                                                                                                              |
+| $class    | string | `image`  | È la classe principale del componente associata all'elemento `figure`. Sull'elemento `img` viene costruita la classe dalla classe principlate. Se si passano più di due classi, dalla seconda in poi sono associate solo all'elemento `figure`, utile per aggiungere modificatori. |
+| $attr     | string | `null`   | Consente di assegnare attributi all'elemento figure. Risulta utile per l'attributo `data-caos`.                                                                                                                                                                                    |
+| $data     | array  | `null`   | Con questa proprietà è possibile assegnare data-attribute al tag `picture` del componente.                                                                                                                                                                                         |
+| $type     | string | `medium` | Serve per indicare il formato dell'immagine di default per il desktop. I valori ammessi sono: `'medium'` `'full'`                                                                                                                                                                  |
 
-<h3>Esempio:</h3>
+## Esempio completo
 
 ```php
 foreach ($this->getModulo('immagini') as $img) {
   $this->cube_parts('component_folder.Image', [
     'img' => $img,
-    'class' => 'image-class',
+    'class' => 'image-class image-class--modificatore',
+    'attr' => 'data-caos="fade-up"',
+    'data' => ['index' => 1],
     'type' => 'full'
   ]);
 }
+```
+
+### Risultato finale
+
+```html
+<figure class="image-class image-class--modificatore" data-caos="fade-up">
+  <picture data-index="1">
+    <source
+      srcset="https://cdn.blastness/thumbnail_mobile/image.webp"
+      media="(max-width:769px)"
+      type="image/webp" />
+    <source
+      srcset="https://cdn.blastness/thumbnail_mobile/image.jpg"
+      media="(max-width:769px)"
+      type="image/jpg" />
+    <source srcset="https://cdn.blastness/full/image.webp" type="image/webp" />
+    <img
+      loading="lazy"
+      class="image-class__img"
+      alt="alt"
+      title="title"
+      src="https://cdn.blastness/full/image.jpg" />
+  </picture>
+</figure>
 ```
 
 ## Image con lazy loading nativo

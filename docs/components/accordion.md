@@ -23,9 +23,9 @@ $accordion = $this->getModulo('Accordion');
 
 foreach ($accordion as $list) { ?>
   <details class="accordion-details" name="accordion">
-    <summary class="accordion-summary" role="button">
-      <span class="accordion-summary__title"><?= $list['titolo'] ?></span>
-      <i class="fa-thin fa-chevron-down accordion-icontainer__icon" aria-hidden="true"></i>
+    <summary class="accordion__summary" role="button">
+      <span class="accordion__title"><?= $list['titolo'] ?></span>
+      <i class="fa-thin fa-chevron-down accordion__icon" aria-hidden="true"></i>
     </summary>
     <div class="accordion-content">
       <div class="accordion-content__text"><?= $list['testo'] ?></div>
@@ -104,11 +104,11 @@ Lo stile dell'accordion dipende dalla grafica del vostro progetto ma potete usar
 }
 
 /* Stili interni del contenuto */
-.accordion-content__body {
+.accordion-content {
   padding-bottom: 1rem;
 }
 
-.accordion-content__body p {
+.accordion-content__text {
   font-size: 0.95rem;
   line-height: 1.6;
 }

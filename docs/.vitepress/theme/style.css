@@ -167,3 +167,31 @@
 .vp-doc h3 {
   font-size: 16px;
 }
+
+/* --- LA TUA LOGICA DI ANIMAZIONE ---
+  Nota: ::details-content è supportato da Chrome/Edge 129+.
+*/
+
+::details-content {
+  transition: all 0.5s ease, content-visibility 0.5s allow-discrete;
+  height: 0;
+  overflow: clip;
+}
+
+@supports (interpolate-size: allow-keywords) {
+  :root {
+    interpolate-size: allow-keywords;
+  }
+
+  [open]::details-content {
+    height: auto;
+  }
+}
+
+/* Fallback per browser che non supportano interpolate-size ma supportano details-content */
+@supports not (interpolate-size: allow-keywords) {
+  [open]::details-content {
+    height: 200px; /* Fallback semplice con scroll attivo */
+    overflow-y: scroll;
+  }
+}

@@ -17,6 +17,7 @@ export default defineConfig({
     ["meta", { property: "og:locale", content: "it" }],
     ["meta", { property: "og:title", content: "Cube API | Guida utile per Cube" }],
     ["meta", { property: "og:site_name", content: "VitePress" }],
+    ["meta", { property: "algolia-site-verification", content: "417AD481A4A8659A" }],
     [
       "meta",
       {
@@ -81,8 +82,11 @@ export default defineConfig({
       // ],
     },
     search: {
-      provider: "local",
+      provider: "algolia",
       options: {
+        appId: "5CFPNMMI3D", // Il tuo ID applicazione Algolia
+        apiKey: "831a90cee624563ae464cb0828d0ebc8", // La tua chiave API di ricerca
+        indexName: "...",
         detailedView: true,
         translations: {
           button: {

@@ -67,6 +67,7 @@ export default defineConfig({
         {
           text: "Lista componenti",
           items: [
+            { text: "Accordion", link: "/components/accordion" },
             { text: "Image", link: "/components/image" },
             { text: "Link", link: "/components/link" },
           ],

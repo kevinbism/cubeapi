@@ -86,7 +86,7 @@ export default defineConfig({
       options: {
         appId: "5CFPNMMI3D", // Il tuo ID applicazione Algolia
         apiKey: "831a90cee624563ae464cb0828d0ebc8", // La tua chiave API di ricerca
-        indexName: "...",
+        indexName: "cubeapi_vercel_app_5cfpnmmi3d_pages",
         detailedView: true,
         translations: {
           button: {

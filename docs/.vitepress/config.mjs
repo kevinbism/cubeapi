@@ -13,7 +13,7 @@ export default defineConfig({
   head: [
     ["link", { rel: "icon", type: "image/png", href: "/logo.png" }],
     ["meta", { name: "theme-color", content: "#5f67ee" }],
-    ["meta", { property: "algolia-site-verification", content: "417AD481A4A8659A" }],
+    ["meta", { name: "algolia-site-verification", content: "417AD481A4A8659A" }],
     ["meta", { property: "og:type", content: "website" }],
     ["meta", { property: "og:locale", content: "it" }],
     ["meta", { property: "og:title", content: "Cube API | Guida utile per Cube" }],

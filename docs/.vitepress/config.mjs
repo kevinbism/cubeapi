@@ -13,7 +13,6 @@ export default defineConfig({
   head: [
     ["link", { rel: "icon", type: "image/png", href: "/logo.png" }],
     ["meta", { name: "theme-color", content: "#5f67ee" }],
-    ["meta", { name: "algolia-site-verification", content: "417AD481A4A8659A" }],
     ["meta", { property: "og:type", content: "website" }],
     ["meta", { property: "og:locale", content: "it" }],
     ["meta", { property: "og:title", content: "Cube API | Guida utile per Cube" }],
@@ -74,19 +73,10 @@ export default defineConfig({
           ],
         },
       ],
-      // "/cubepack/": [
-      //   {
-      //     text: "Cubepack",
-      //     items: [{ text: "Installazione", link: "/cubepack/" }],
-      //   },
-      // ],
     },
     search: {
-      provider: "algolia",
+      provider: "local",
       options: {
-        appId: "5CFPNMMI3D", // Il tuo ID applicazione Algolia
-        apiKey: "831a90cee624563ae464cb0828d0ebc8", // La tua chiave API di ricerca
-        indexName: "cubeapi_vercel_app_5cfpnmmi3d_pages",
         detailedView: true,
         translations: {
           button: {

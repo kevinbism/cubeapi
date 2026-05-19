@@ -37,6 +37,7 @@ export default defineConfig({
     nav: [
       { text: "Guida", link: "/guide/content-api" },
       { text: "Componenti", link: "/components/" },
+      { text: "Novità", link: "/news/" },
     ],
     docFooter: {
       prev: "Pagina precedente",

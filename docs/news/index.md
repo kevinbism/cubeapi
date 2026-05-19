@@ -9,20 +9,20 @@ Benvenuto nella sezione **News**. Qui pubblichiamo aggiornamenti generici su svi
 
 ## Maggio 2026
 
-- ### Aggiornamento Swalle versione 5
+### Aggiornamento Swalle versione 5
 
 **Swalle** è stato trasformato in classe per permetterci di utilizzarne esternamente metodi e funzioni, in modo da poterlo gestire anche dopo la dichiarazione.
 
-**Inclusione della libreria**
+#### **Inclusione della libreria**
 
 Per non compromettere il comportamento dei siti che utilizzano una versione precedente di Swalle, la versione di **default** su cube è rimasta la **uno**.<br />
 Per includere la libreria aggiornata utilizzare questo script dove è specificata la versione da utilizzare (5).
 
-```php
+```html
 <script src="<?=$this->getLibreria("swalle", 5)['js'] ?>" defer></script>
 ```
 
-**Dichiarazione**
+#### **Dichiarazione**
 
 Essendo diventato un oggetto ora Swalle ha una nuova dichiarazione.
 
@@ -44,7 +44,7 @@ var swalle = new Swalle({
 - `paginationEl` (string): Selettore CSS per l'elemento di paginazione.
 - `setTime` (number): Intervallo di tempo (in millisecondi) per l'autoplay. Predefinito: 5000 ms.
 
-### Esempio Completo
+### Esempio completo
 
 ```javascript
 document.addEventListener("DOMContentLoaded", function () {

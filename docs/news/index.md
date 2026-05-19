@@ -64,7 +64,7 @@ Per maggiori informazioni su Swalle consultare il seguente link <a href="https:/
 
 ### Flex al posto della dimensione in percentuale
 
-Abbiamo introdotto ottimizzazioni generali per rendere l'esperienza più fluida e stabile.
+Abbiamo sostituito le classiche dimensioni in percentuale o pixel con la proprietà `flex`, rendendo la gestione dei layout molto più flessibile e reattiva. Utilizzando `flex` puoi ottenere la stessa suddivisione degli spazi (sia in proporzione che in valore assoluto) ma con maggiore semplicità e adattabilità, senza dover calcolare manualmente le larghezze o modificare il CSS per ogni breakpoint.
 
 ```css
 .container {

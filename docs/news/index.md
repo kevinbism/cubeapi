@@ -15,7 +15,7 @@ Benvenuto nella sezione **News**. Qui pubblichiamo aggiornamenti generici su svi
 
 **Inclusione della libreria**
 
-Per non compromettere il comportamento dei siti che utilizzano una versione precedente di Swalle, la versione di **default** su cube è rimasta la **uno**.<br /> 
+Per non compromettere il comportamento dei siti che utilizzano una versione precedente di Swalle, la versione di **default** su cube è rimasta la **uno**.<br />
 Per includere la libreria aggiornata utilizzare questo script dove è specificata la versione da utilizzare (5).
 
 ```php
@@ -27,12 +27,12 @@ Per includere la libreria aggiornata utilizzare questo script dove è specificat
 Essendo diventato un oggetto ora Swalle ha una nuova dichiarazione.
 
 ```javascript
-var swalle =  new Swalle({
-    img: '.swalle-image',
-    prev: '.swalle-prev',
-    next:'.swalle-next',
-    paginationEl: '.swalle-pagination',
-    setTime: 3000
+var swalle = new Swalle({
+  img: ".swalle-image",
+  prev: ".swalle-prev",
+  next: ".swalle-next",
+  paginationEl: ".swalle-pagination",
+  setTime: 3000,
 });
 ```
 
@@ -47,13 +47,13 @@ var swalle =  new Swalle({
 ### Esempio Completo
 
 ```javascript
-document.addEventListener('DOMContentLoaded', function () {
-  var swalle =  new Swalle({
-      img: '.swalle-image',
-      prev: '.swalle-prev',
-      next:'.swalle-next',
-      paginationEl: '.swalle-pagination',
-      setTime: 3000
+document.addEventListener("DOMContentLoaded", function () {
+  var swalle = new Swalle({
+    img: ".swalle-image",
+    prev: ".swalle-prev",
+    next: ".swalle-next",
+    paginationEl: ".swalle-pagination",
+    setTime: 3000,
   });
 });
 ```

@@ -15,10 +15,10 @@ Benvenuto nella sezione **News**. Qui pubblichiamo aggiornamenti generici su svi
 
 #### **Inclusione della libreria**
 
-Per non compromettere il comportamento dei siti che utilizzano una versione precedente di Swalle, la versione di **default** su cube è rimasta la **uno**.<br />
+Per non compromettere il comportamento dei siti che utilizzano una versione precedente di Swalle, la versione di **default** su Cube è rimasta la **uno**.<br>
 Per includere la libreria aggiornata utilizzare questo script dove è specificata la versione da utilizzare (5).
 
-```html
+```php
 <script src="<?=$this->getLibreria("swalle", 5)['js'] ?>" defer></script>
 ```
 
@@ -27,7 +27,7 @@ Per includere la libreria aggiornata utilizzare questo script dove è specificat
 Essendo diventato un oggetto ora Swalle ha una nuova dichiarazione.
 
 ```javascript
-var swalle = new Swalle({
+const swalle = new Swalle({
   img: ".swalle-image",
   prev: ".swalle-prev",
   next: ".swalle-next",
@@ -48,7 +48,7 @@ var swalle = new Swalle({
 
 ```javascript
 document.addEventListener("DOMContentLoaded", function () {
-  var swalle = new Swalle({
+  const swalle = new Swalle({
     img: ".swalle-image",
     prev: ".swalle-prev",
     next: ".swalle-next",
@@ -65,3 +65,33 @@ Per maggiori informazioni su Swalle consultare il seguente link <a href="https:/
 ### Flex al posto della dimensione in percentuale
 
 Abbiamo introdotto ottimizzazioni generali per rendere l'esperienza più fluida e stabile.
+
+```css
+.container {
+  display: flex;
+}
+
+.item-sx {
+  flex: 40; /* Valore corrispondente a width: 40% */
+}
+
+.item-dx {
+  flex: 60; /* Valore corrispondente a width: 60% */
+}
+```
+
+Lo stesso approccio può essere usato per le dimensioni in `px`. Ad esempio se l'elemento `.item-sx` è largo `650px` mentre `.item-dx` sono `350px` posso impostare gli elementi in questo modo:
+
+```css
+.container {
+  display: flex;
+}
+
+.item-sx {
+  flex: 650; /* Valore corrispondente a width: 650px */
+}
+
+.item-dx {
+  flex: 350; /* Valore corrispondente a width: 350px */
+}
+```

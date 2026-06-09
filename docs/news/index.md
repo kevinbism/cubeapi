@@ -7,6 +7,37 @@ description: Aggiornamenti e novità del progetto
 
 Benvenuto nella sezione **News**. Qui pubblichiamo aggiornamenti generici su sviluppo, miglioramenti e attività recenti.
 
+## Giugno 2026
+
+### Controlli animazioni e accessibilità
+
+Per rispettare le **impostazioni del browser** che gestiscono la disattivazione delle animazioni bisogna effettuare due controlli, uno lato **CSS** ed uno lato **JS** (a seconda della tipologia di animazioni che andremo ad utilizzare nel nostro sito).
+
+#### CSS
+```css
+@media (prefers-reduced-motion: reduce) {
+  ...animazioni da disattivare...
+}
+```
+
+#### JS
+```js
+if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  ...animazioni da attivare...
+}
+```
+
+#### Testing
+Queste impostazioni si possono testare direttamente dal browser nel seguente modo:
+- `F12` per aprire i DevTools.
+- `Ctrl + Shift + P`
+- `Digita Show Rendering`
+- `Apri il pannello Rendering` in basso a destra
+- `Cerca: Emulate CSS media feature prefers-reduced-motion.`
+- `Seleziona: reduce`
+
+L'effetto CSS si applica immediatamente, per il JS invece è necessario aggiornare la pagina.
+
 ## Maggio 2026
 
 ### Aggiornamento Moose

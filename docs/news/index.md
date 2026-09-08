@@ -7,6 +7,14 @@ description: Aggiornamenti e novità del progetto
 
 Benvenuto nella sezione **News**. Qui pubblichiamo aggiornamenti generici su sviluppo, miglioramenti e attività recenti.
 
+## Settembre 2026
+
+### Agile JSON Builder
+
+A grande richiesta, senza che nessuno l'abbia chiesto, è stato sviluppato [Agile JSON Builder](https://agilejsonbuilder.vercel.app/) il tool per permettere al 25% dei capi reparto di costruire in maniera visiva e più facilmente il file config dei componenti di Agile.
+
+Per smanettare o per dare il proprio contributo ecco la repo su Github: [https://github.com/kevinbism/agilejsonbuilder](https://github.com/kevinbism/agilejsonbuilder)
+
 ## Agosto 2026
 
 ### Barra di avanzamento con Scroll-Driven Animations (CSS Nativo)

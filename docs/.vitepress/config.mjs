@@ -38,6 +38,7 @@ export default defineConfig({
       { text: "Guida", link: "/guide/content-api" },
       { text: "Componenti", link: "/components/" },
       { text: "Novità", link: "/news/" },
+      { text: "Agile", link: "/agile/" }
     ],
     docFooter: {
       prev: "Pagina precedente",
@@ -57,6 +58,14 @@ export default defineConfig({
             { text: "Template", link: "/guide/template-api" },
             { text: "Utili", link: "/guide/utils-api" },
             { text: "Funzioni di sistema", link: "/guide/functions-system-api" },
+          ],
+        },
+      ],
+      "/agile/": [
+        {
+          text: "Agile Components",
+          items: [
+            { text: "Picture", link: "/agile/picture" },
           ],
         },
       ],

@@ -37,8 +37,9 @@ export default defineConfig({
     nav: [
       { text: "Guida", link: "/guide/content-api" },
       { text: "Componenti", link: "/components/" },
-      { text: "Novità", link: "/news/" },
-      { text: "Agile", link: "/agile/" }
+      { text: "Librerie", link: "/libraries/" },
+      { text: "Agile", link: "/agile/" },
+      { text: "Novità", link: "/news/" }
     ],
     docFooter: {
       prev: "Pagina precedente",
@@ -61,9 +62,21 @@ export default defineConfig({
           ],
         },
       ],
+      "/libraries/": [
+        {
+          text: "Librerie Siti Custom e Agile",
+          items: [
+            { text: "Caos", link: "/libraries/caos" },
+            { text: "Dario", link: "/libraries/dario" },
+            { text: "Moose", link: "/libraries/moose" },
+            { text: "Sgrollo", link: "/libraries/sgrollo" },
+            { text: "Swalle", link: "/libraries/swalle" },
+          ],
+        },
+      ],
       "/agile/": [
         {
-          text: "Agile Components",
+          text: "Componenti Agile",
           items: [
             { text: "Picture", link: "/agile/picture" },
           ],

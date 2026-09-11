@@ -1,7 +1,5 @@
 # CAOS
 
-[![license][license-image]][license-url]
-
 Cube Animate On Scroll. La libreria leggera per i tuoi progetti. Pagina demo [qui](https://kevinbism.github.io/caos/).
 
 ## ⚙ Installazione
@@ -61,6 +59,3 @@ Puoi configurare singolarmente ogni elemento con i vari attributi `data-caos-*`:
 #### Contributi
 
 Clona la repository e aggiungi nuove funzionalità. Ogni contributo è ben gradito.
-
-[license-image]: https://img.shields.io/npm/l/destyle.css.svg?style=flat-square
-[license-url]: LICENSE
